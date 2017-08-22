@@ -68,7 +68,7 @@ hexo g -d
 将博客发布
 
 ---
-这样一来，在GitHub上的https://github.com/Yuki-14544869/Yuki-14544869.github.io仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。完美( •̀ ω •́ )y！
+这样一来，在GitHub上的[https://github.com/Yuki-14544869/Yuki-14544869.github.io](https://github.com/Yuki-14544869/Yuki-14544869.github.io)仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。完美( •̀ ω •́ )y！
 
 ---
 # 参考资料
