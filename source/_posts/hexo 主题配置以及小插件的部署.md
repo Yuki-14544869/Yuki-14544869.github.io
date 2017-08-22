@@ -8,11 +8,11 @@ tags:
 
 # 设置代码高亮主题
 NexT 使用 Tomorrow Theme 作为代码高亮，共有5款主题供你选择。 NexT 默认使用的是 白色的 normal 主题，可选的值有 normal，night， night blue， night bright， night eighties：
-![normal](/Img/2017-8-12_22-07-normal.png)
-![night](/Img/2017-8-12_22-07-night.png)
-![night blue](/Img/2017-8-12_22-07-night blue.png)
-![night bright](/Img/2017-8-12_22-07-night bright.png)
-![night eighties](/Img/2017-8-12_22-07-night eighties.png)  
+![normal](/Img/2017/08/12/2017-8-12_22-07-normal.png)
+![night](/Img/2017/08/12/2017-8-12_22-07-night.png)
+![night blue](/Img/2017/08/12/2017-8-12_22-07-night blue.png)
+![night bright](/Img/2017/08/12/2017-8-12_22-07-night bright.png)
+![night eighties](/Img/2017/08/12/2017-8-12_22-07-night eighties.png)  
 更改**主题配置文件** highlight_theme 字段，将其值设定成你所喜爱的高亮主题，例如：
 
 ```
