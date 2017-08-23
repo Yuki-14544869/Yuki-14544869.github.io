@@ -17,4 +17,4 @@ for(int i=0; s[i]; ++i)
 ```
 const int INF = 0x3f3f3f3f;
 ```
-具体原因参见[为何程序员喜欢将 INF 设置为 0x3f3f3f3f ？]()
+具体原因参见[为何程序员喜欢将 INF 设置为 0x3f3f3f3f ？](https://yuki-14544869.github.io/2017/08/23/%E4%B8%BA%E4%BD%95%E7%A8%8B%E5%BA%8F%E5%91%98%E5%96%9C%E6%AC%A2%E5%B0%86INF%E8%AE%BE%E7%BD%AE%E4%B8%BA0x3f3f3f3f%EF%BC%9F/)
