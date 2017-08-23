@@ -5,6 +5,7 @@ tags:
   - ACM
   - hiho
   - 分治
+  - C++
 ---
 
 # [#1324 : 希尔伯特曲线](http://hihocoder.com/problemset/problem/1324)
