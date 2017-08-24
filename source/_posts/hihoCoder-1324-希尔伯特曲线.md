@@ -72,9 +72,9 @@ p 的序号。
 
 ---
 ## 题解
-```
 
 ### C++
+```
 /*
     Author: Yuki
     GitHub: https://github.com/Yuki-14544869/
