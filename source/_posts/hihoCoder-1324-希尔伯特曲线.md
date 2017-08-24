@@ -73,48 +73,77 @@ p 的序号。
 ---
 ## 题解
 ```
+
+### C++
 /*
     Author: Yuki
     GitHub: https://github.com/Yuki-14544869/
     Blog:   https://yuki-14544869.github.io/
 */
 #include <bits/stdc++.h>
+#define LL long long
 using namespace std;
+const int INF = 0x3f3f3f3f;
+LL HilbertNumber(int n, int x, int y) {
+    if(n==0)
+        return 1;
+    int m = 1<<(n-1);
 
+    if(x<=m) {
+        if(y<=m)
+            return HilbertNumber(n-1, y, x);
+        else
+            return 1LL*m*m + HilbertNumber(n-1, x, y-m);
+    } else {
+        if(y>m)
+            return 2LL*m*m + HilbertNumber(n-1, x-m, y-m);
+        else
+            return 3LL*m*m + HilbertNumber(n-1, m+1-y, 2*m+1-x);
+    }
+}
 int main() {
     int n, x, y;
     cin >> n >> x >> y;
-    int flag = 1, temp; //曲线走势为顺时针时flag为1，走势为逆时针时flag为0
-    long long num = 0, N;
-    for (int i = n; i >= 1; i--) {
-        N = pow(2, i - 1);
-        if (x <= N) {
-            if (y <= N) { //p点落在1区
-                num += (1 - flag) * 3 * N*N;
-                temp = y;
-                y = x;
-                x = N + 1 - temp;
-                flag = 1 - flag;
-            } else { //p点落在2区
-                num += (flag + (1 - flag) * 2)*N*N;
-                y -= N;
-            }
-        } else {
-            if (y <= N) { //p点落在4区
-                num += flag * 3 * N*N;
-                temp = x - N;
-                x = y;
-                y = N + 1 - temp;
-                flag = 1 - flag;
-            } else { //p点落在3区
-                num += (2 * flag + (1 - flag))*N*N;
-                x -= N;
-                y -= N;
-            }
-        }
-        if (i == 1) num++;
-    }
-    cout << num << endl;
+    cout << HilbertNumber(n, x, y) << endl;
     return 0;
+}
+```
+
+### Java
+```
+import java.util.Scanner;
+
+public class Main {
+    /*
+    Author: Yuki
+    GitHub: https://github.com/Yuki-14544869/
+    Blog:   https://yuki-14544869.github.io/
+    */
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int x = in.nextInt();
+        int y = in.nextInt();
+
+        System.out.println(HilbertNumber(n, x, y));
+        in.close();
+    }
+    public static long HilbertNumber(int n, int x, int y) {
+        if(n==0)
+            return 1;
+        int m = 1<<(n-1);
+
+        if(x<=m) {
+            if(y<=m)
+                return HilbertNumber(n-1, y, x);
+            else
+                return 1L*m*m + HilbertNumber(n-1, x, y-m);
+        } else {
+            if(y>m)
+                return 2L*m*m + HilbertNumber(n-1, x-m, y-m);
+            else
+                return 3L*m*m + HilbertNumber(n-1, m+1-y, 2*m+1-x);
+        }
+    }
 }
 ```
