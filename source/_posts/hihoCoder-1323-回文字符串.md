@@ -1,5 +1,5 @@
 ---
-title: hihoCoder-1323 回文字符串
+title: hihoCoder-1323、回文字符串
 tags:
   - ACM
   - hiho

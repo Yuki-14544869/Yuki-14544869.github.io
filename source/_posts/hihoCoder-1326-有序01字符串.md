@@ -1,5 +1,5 @@
 ---
-title: hihoCoder-1326 有序01字符串
+title: hihoCoder-1326、有序01字符串
 date: 2017-08-24 09:14:11
 tags:
   - ACM

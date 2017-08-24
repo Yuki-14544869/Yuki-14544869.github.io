@@ -1,5 +1,5 @@
 ---
-title: hihoCoder-1000 A + B
+title: hihoCoder-1000、A + B
 date: 2017-08-24 16:17:38
 tags:
   - ACM
