@@ -5,7 +5,6 @@ tags:
   - ACM
   - hiho
   - 字符串
-  - C++
 ---
 
 
