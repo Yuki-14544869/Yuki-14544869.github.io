@@ -54,7 +54,11 @@ NO
 
 ---
 ## 思路
-经典题
+这道题目思路简单。首先判断给出的四条线段能不能组成四边形，如果可以，在判断这个四边形是不是矩形。 
+
+判断是不是四边形：
+输入了四条线段，总共有八个点。如果这八个点中，两两重合，总共有四个点，那么一定是一个四边形。判断八个点是不是两两重合，用set即可。set插入八个点，如果大小为四，那么就是两两重合。
+一个四边形，如果一条边和另外三条边要么平行，要么垂直，那么就是矩形。判断平行或垂直，用斜率即可。
 
 ---
 ## 题解
@@ -163,5 +167,64 @@ int main() {
 
 ### Java
 ```
-Writting
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+    /*
+    Author: Yuki
+    GitHub: https://github.com/Yuki-14544869/
+    Blog:   https://yuki-14544869.github.io/
+    */
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int T = in.nextInt();
+        int[][] mat = new int[4][4];
+        while(T-- > 0) {
+            for(int i=0; i<4; ++i) {
+                for(int j=0; j<4; ++j) {
+                    mat[i][j] = in.nextInt();
+                }
+            }
+            if(!judgePoint(mat)) {
+                System.out.println("NO");
+                continue;
+            }
+            if(!judgeRect(mat))
+                System.out.println("NO");
+            else System.out.println("YES");
+        }
+        in.close();
+    }
+
+    public static boolean judgePoint(int[][] mat) {
+        List<String> points = new ArrayList<String>();
+        for(int i=0; i<4; ++i) {
+            for(int j=0; j<4; j+=2) {
+                String point = String.valueOf(mat[i][j]) + "," + String.valueOf(mat[i][j+1]);
+                if(!points.contains(point)) {
+                    points.add(point);
+                }
+            }
+        }
+        return (points.size() == 4);
+    }
+
+    public static boolean judgeRect(int[][] mat) {
+        for(int i=1; i<4; ++i) {
+            //判断是否垂直
+            if((mat[0][1]-mat[0][3])*(mat[i][1]-mat[i][3]) == -(mat[0][0]-mat[0][2])*(mat[i][0]-mat[i][2])){
+                continue;
+            }
+            //判断是否平行
+            if((mat[0][1]-mat[0][3])*(mat[i][0]-mat[i][2]) == (mat[0][0]-mat[0][2])*(mat[i][1]-mat[i][3])) {
+                continue;
+            }
+            return false;
+        }
+        return true;
+    }
+}
+
 ```
