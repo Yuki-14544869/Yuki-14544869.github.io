@@ -4,7 +4,7 @@ date: 2017-09-02 14:33:04
 tags:
  - ACM
  - hiho
- - 字符串
+ - 贪心
 ---
 # [#1327 : 分隔相同字符](http://hihocoder.com/problemset/problem/1327)
 ## 描述
