@@ -36,4 +36,4 @@ highlight:
 
 1. [hexo 主题配置](http://theme-next.iissnan.com/theme-settings.html)
 
-2. [hexo中next主题代码高亮无法正常显示，如何解决？](https://www.zhihu.com/question/51705387)
+1. [hexo中next主题代码高亮无法正常显示，如何解决？](https://www.zhihu.com/question/51705387)
