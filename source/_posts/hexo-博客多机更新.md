@@ -50,11 +50,10 @@ git clone git@github.com:Yuki-14544869/Yuki-14544869.github.io.git //将这里�
 在下载下来的文件夹下打开 git bash 依次执行,**此时当前分支应显示为 HEXO**
 
 ```bash
-npm install hexo0-cli -g
+npm install hexo-cli -g
 npm install hexo --save   //先安装 hexo
 npm install
 npm install hexo-deployer-git
-
 ```
 
 ---
