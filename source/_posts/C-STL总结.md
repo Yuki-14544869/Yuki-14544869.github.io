@@ -17,7 +17,8 @@ tags:
 ### substr
 
 `string substr (size_t pos = 0, size_t len = npos) const;`**产生子串**
-返回一个新建的初始化为 string 对象的子串的拷贝 string 对象。  
+返回一个新建的初始化为 string 对象的子串的拷贝 string 对象。
+
 子串是，在字符位置 pos 开始，跨越 len 个字符（或直到字符串的结尾，以先到者为准）对象的部分。
 
 ```C++
