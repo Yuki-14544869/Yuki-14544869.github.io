@@ -1,5 +1,5 @@
 ---
-title: Centos 卸载 OpenJDK
+title: Centos7 卸载 OpenJDK
 date: 2018-01-05 15:47:19
 tags:
   - Centos
