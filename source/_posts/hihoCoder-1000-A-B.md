@@ -5,48 +5,61 @@ tags:
   - ACM
   - hiho
 ---
-
 # [#1000 : A + B](http://hihocoder.com/problemset/problem/1000)
+
 ## 描述
+
 求两个整数A+B的和
 
 ---
+
 ## 输入
-输入包含多组数据。  
+
+输入包含多组数据。
+
 每组数据包含两个整数A(1 ≤ A ≤ 100)和B(1 ≤ B ≤ 100)。
 
 ---
+
 ## 输出
+
 对于每组数据输出A+B的和。
 
 ---
 
 ## 样例输入
+
 >1 2
- 3 4
+3 4
 
 ---
 
 ## 样例输出
+
 >3
- 7
+7
 
 ---
 
 ## 限制
+
 时间限制:10000ms
 单点时限:1000ms
 内存限制:256MB
 
 ---
+
 ## 思路
+
 经典题
 
 ---
+
 ## 题解
 
 ### C++
-```
+
+```C++
 /*
     Author: Yuki
     GitHub: https://github.com/Yuki-14544869/
@@ -67,7 +80,8 @@ int main() {
 ```
 
 ### Java
-```
+
+```Java
 import java.util.Scanner;
 
 public class Main {
