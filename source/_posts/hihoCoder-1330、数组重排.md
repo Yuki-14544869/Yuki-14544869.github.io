@@ -7,7 +7,9 @@ tags:
  - hiho
 ---
 # [#1330 : 数组重排](http://hihocoder.com/problemset/problem/1330)
+
 ## 描述
+
 小Hi想知道，如果他每次都按照一种固定的顺序重排数组，那么最少经过几次重排之后数组会恢复初始的顺序？
 
 具体来讲，给定一个1 - N 的排列 P，小Hi每次重排都是把第 i 个元素放到第 Pi个位置上。例如对于 P = (2, 3, 1)，假设初始数组是(1, 2, 3)，重排一次之后变为(3, 1, 2)，重排两次之后变为(2, 3, 1)，重排三次之后变回(1, 2, 3)。
@@ -15,40 +17,53 @@ tags:
 被排数组中的元素可以认为是两两不同的。
 
 ---
+
 ## 输入
+
 第一行一个整数 N ，代表数组的长度。 (1 ≤ N ≤ 100)
 
 第二行N个整数，代表1 - N 的一个排列 P 。
 
 ---
+
 ## 输出
+
 输出最少重排的次数。
 
 ---
+
 ## 样例输入
+
 >3
- 2 3 1
+2 3 1
 
 ---
+
 ## 样例输出
+
 >3
 
-
 ---
+
 ## 限制
+
 时间限制:10000ms
 单点时限:1000ms
 内存限制:256MB
 
 ---
+
 ## 思路
+
 对于每一个点分别通过模拟得出最小步骤，再求每个最小步骤的最小公倍数。
 
 ---
+
 ## 题解
 
 ### C++
-```
+
+```C++
 /*
 Author: Yuki
 GitHub: https://github.com/Yuki-14544869/
@@ -97,9 +112,9 @@ inline bool II(int &t) {
 }
 using namespace IO;
 void filein() {
-#ifndef ONLINE_JUDGE
-    freopen("in.txt", "r", stdin);
-#endif
+    #ifndef ONLINE_JUDGE
+        freopen("in.txt", "r", stdin);
+    #endif
 }
 
 int N;
@@ -150,6 +165,7 @@ int main() {
 ```
 
 ### Java
-```
+
+```java
 Writting...
 ```
