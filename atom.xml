@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>#39C5BB</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="/"/>
+  <updated>2018-11-14T04:08:21.527Z</updated>
+  <id>/</id>
+  
+  <author>
+    <name>Yuki-</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一台机器上配置多个Git的rsa</title>
+    <link href="/%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E7%9A%84rsa/"/>
+    <id>/一台机器上配置多个git的rsa/</id>
+    <published>2018-04-28T08:24:38.000Z</published>
+    <updated>2018-11-14T04:08:21.527Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一台机器上配置多个-git-的-rsa"><a href="#一台机器上配置多个-git-的-rsa" class="headerlink" title="一台机器上配置多个 git 的 rsa"></a>一台机器上配置多个 git 的 rsa</h1><h2 id="建立-rsa"><a href="#建立-rsa" class="headerlink" title="建立 rsa"></a>建立 rsa</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的邮箱地址&quot;</span><br></pre></td></tr></table></figure>
+<p>执行完这条命令之后, 会弹出如下提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter file in which to save the key (/Users/aaaa/.ssh/id_rsa):</span><br></pre></td></tr></table></figure>
+<p>在这里这里就是 “建立多个不同rsa“文件的地方，输入不同的名字，就会产生不同的rsa.例如输入: github_rsa。就产生了github_rsa.<br>重复上面的命令，再建立gitlab的即可。</p>
+<h2 id="修改-ssh-config"><a href="#修改-ssh-config" class="headerlink" title="修改 ssh config"></a>修改 ssh config</h2><p>现在，gitlab和github都有自己的rsa了。那么，如何引导选择不同的rsa验证呢。这时候需要修改 ssh config文件。<br>如果你的 ~/.ssh 目录下没有 请建立一个这样的文件， 文件名: config。<br>下面的事情是修改config文件。按照如下方式修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User 你的名字</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">Host gitlab.com</span><br><span class="line">User 你的名字</span><br><span class="line">IdentityFile ~/.ssh/csdn_rsa</span><br></pre></td></tr></table></figure>
+<h2 id="删除本地全局设置"><a href="#删除本地全局设置" class="headerlink" title="删除本地全局设置"></a>删除本地全局设置</h2><p>如果之前使用过程中使用过<code>git config --global user.name</code>或者 <code>git config --global user.email</code> 命令，git 会在 C 盘目下产生一个<strong>.gitconfig</strong>文件，这个文件中保存了全局的git帐号信息，应该删除掉。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://blog.csdn.net/z69183787/article/details/52606453" target="_blank" rel="noopener">如何在一台机器上配置多个git的rsa</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一台机器上配置多个-git-的-rsa&quot;&gt;&lt;a href=&quot;#一台机器上配置多个-git-的-rsa&quot; class=&quot;headerlink&quot; title=&quot;一台机器上配置多个 git 的 rsa&quot;&gt;&lt;/a&gt;一台机器上配置多个 git 的 rsa&lt;/h1&gt;&lt;h2 i
+    
+    </summary>
+    
+    
+      <category term="git" scheme="/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7 卸载 MariaDB 并安装 Mysql</title>
+    <link href="/Centos7-%E5%8D%B8%E8%BD%BD-MariaDB-%E5%B9%B6%E5%AE%89%E8%A3%85-Mysql/"/>
+    <id>/Centos7-卸载-MariaDB-并安装-Mysql/</id>
+    <published>2018-01-14T05:10:32.000Z</published>
+    <updated>2018-11-14T04:08:21.519Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Centos7-卸载-MariaDB-并安装-Mysql"><a href="#Centos7-卸载-MariaDB-并安装-Mysql" class="headerlink" title="Centos7 卸载 MariaDB 并安装 Mysql"></a>Centos7 卸载 MariaDB 并安装 Mysql</h1><h2 id="查看已安装的的-MariaDB-相关的模块"><a href="#查看已安装的的-MariaDB-相关的模块" class="headerlink" title="查看已安装的的 MariaDB 相关的模块"></a>查看已安装的的 MariaDB 相关的模块</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[user@localhost ~]$ rpm -qa | grep mariadb</span><br><span class="line">mariadb-server-5.5.56-2.el7.x86_64</span><br><span class="line">mariadb-5.5.56-2.el7.x86_64</span><br><span class="line">mariadb-libs-5.5.56-2.el7.x86_64</span><br></pre></td></tr></table></figure>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[user@localhost ~]$ sudo rpm -e mariadb-server-5.5.56-2.el7.x86_64</span><br><span class="line">[user@localhost ~]$ sudo rpm -e --nodeps mariadb-5.5.56-2.el7.x86_64</span><br><span class="line">[user@localhost ~]$ sudo rpm -e --nodeps mariadb-libs-5.5.56-2.el7.x86_64</span><br></pre></td></tr></table></figure>
+<h2 id="安装-MySql"><a href="#安装-MySql" class="headerlink" title="安装 MySql"></a>安装 MySql</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">'https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm'</span></span><br><span class="line">sudo rpm -Uvh mysql57-community-release-el7-11.noarch.rpm</span><br><span class="line">sudo yum install mysql-community-server</span><br><span class="line">sudo systemctl start mysqld</span><br></pre></td></tr></table></figure>
+<h2 id="修改-root-初始密码"><a href="#修改-root-初始密码" class="headerlink" title="修改 root 初始密码"></a>修改 root 初始密码</h2><p>MySQL5.7加强了root用户的安全性，因此在第一次安装后会初始化一个随机密码，以下为查看初始随机密码的方式，执行完该命令后则会看到一组随机字符串为初始密码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">'temporary password'</span> /var/<span class="built_in">log</span>/mysqld.log</span><br></pre></td></tr></table></figure>
+<h3 id="注意，log只有在mysql服务运行过一遍之后才会有显示"><a href="#注意，log只有在mysql服务运行过一遍之后才会有显示" class="headerlink" title="注意，log只有在mysql服务运行过一遍之后才会有显示"></a>注意，log只有在mysql服务运行过一遍之后才会有显示</h3><p>但是不管我怎么操作，在 mysqld.log 中仍然找不到自己的密码，于是，便只能使用终极的破<br>解操作了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<p>在 [mysqld_safe] 下增加一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure>
+<p>即可跳过授权，直接进入mysql</p>
+<p>修改密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot</span><br><span class="line">use mysql;</span><br><span class="line">update mysql.user <span class="built_in">set</span> authentication_string=password(<span class="string">'123456'</span>) <span class="built_in">where</span> user=<span class="string">'root'</span>;</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<p>此时即可以密码123456来登录 mysql 了</p>
+<h2 id="增加用户并授予权限"><a href="#增加用户并授予权限" class="headerlink" title="增加用户并授予权限"></a>增加用户并授予权限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER <span class="string">'username'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'password'</span>;</span><br><span class="line">GRANT all privileges ON databasename.tablename TO <span class="string">'username'</span>@<span class="string">'host'</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>1.<a href="https://www.jianshu.com/p/7cccdaa2d177" target="_blank" rel="noopener">Centos 7 安装 MySQL</a><br>1.<a href="http://blog.csdn.net/yuxiangjie12/article/details/75452279" target="_blank" rel="noopener">CentOS7.2 安装mysql5.7初始密码问题总结</a><br>1.<a href="http://www.cnblogs.com/rays-/p/8081798.html" target="_blank" rel="noopener">centos7——MySql 5.7添加用户、删除用户与授权</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Centos7-卸载-MariaDB-并安装-Mysql&quot;&gt;&lt;a href=&quot;#Centos7-卸载-MariaDB-并安装-Mysql&quot; class=&quot;headerlink&quot; title=&quot;Centos7 卸载 MariaDB 并安装 Mysql&quot;&gt;&lt;/a&gt;Ce
+    
+    </summary>
+    
+    
+      <category term="Centos" scheme="/tags/Centos/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7 卸载 OpenJDK</title>
+    <link href="/Centos7-%E5%8D%B8%E8%BD%BD-OpenJDK/"/>
+    <id>/Centos7-卸载-OpenJDK/</id>
+    <published>2018-01-05T07:47:19.000Z</published>
+    <updated>2018-11-14T04:08:21.519Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Centos-卸载-OpenJDK"><a href="#Centos-卸载-OpenJDK" class="headerlink" title="Centos 卸载 OpenJDK"></a>Centos 卸载 OpenJDK</h1><h2 id="查找-OpenJDK-安装包"><a href="#查找-OpenJDK-安装包" class="headerlink" title="查找 OpenJDK 安装包"></a>查找 OpenJDK 安装包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># rpm -qa | grep openjdk</span></span><br><span class="line">java-1.8.0-openjdk-headless-1.8.0.151-5.b12.el7_4.x86_64</span><br><span class="line">java-1.8.0-openjdk-1.8.0.151-5.b12.el7_4.x86_64</span><br></pre></td></tr></table></figure>
+<h2 id="卸载-OpenJDK-安装包"><a href="#卸载-OpenJDK-安装包" class="headerlink" title="卸载 OpenJDK 安装包"></a>卸载 OpenJDK 安装包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># yum -y remove java-1.8.0-openjdk-headless-1.8.0.151-5.b12.el7_4.x86_64</span></span><br><span class="line">[root@localhost ~]<span class="comment"># yum -y remove java-1.8.0-openjdk-1.8.0.151-5.b12.el7_4.x86_64</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>1.<a href="http://blog.csdn.net/zitong_ccnu/article/details/40041533" target="_blank" rel="noopener">CentOS7卸载OpenJDK安装Oracle JDK</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Centos-卸载-OpenJDK&quot;&gt;&lt;a href=&quot;#Centos-卸载-OpenJDK&quot; class=&quot;headerlink&quot; title=&quot;Centos 卸载 OpenJDK&quot;&gt;&lt;/a&gt;Centos 卸载 OpenJDK&lt;/h1&gt;&lt;h2 id=&quot;查找-Op
+    
+    </summary>
+    
+    
+      <category term="Centos" scheme="/tags/Centos/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hihoCoder - 1523、数组重排2</title>
+    <link href="/hihoCoder-1523%E3%80%81%E6%95%B0%E7%BB%84%E9%87%8D%E6%8E%922/"/>
+    <id>/hihoCoder-1523、数组重排2/</id>
+    <published>2017-09-12T14:40:07.000Z</published>
+    <updated>2018-11-14T04:08:21.527Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1523-数组重排2"><a href="#1523-数组重排2" class="headerlink" title="#1523 : 数组重排2"></a><a href="http://hihocoder.com/problemset/problem/1523" target="_blank" rel="noopener">#1523 : 数组重排2</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>给定一个1-N的排列A1, A2, … AN，每次操作小Hi可以选择一个数，把它放到数组的最左边。</p>
+<p>请计算小Hi最少进行几次操作就能使得新数组是递增排列的。</p>
+<hr>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第一行包含一个整数N。</p>
+<p>第二行包含N个两两不同整数A1, A2, … AN。(1 &lt;= Ai &lt;= N)</p>
+<p>对于60%的数据 1 &lt;= N &lt;= 20</p>
+<p>对于100%的数据 1 &lt;= N &lt;= 100000</p>
+<hr>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>一个整数代表答案</p>
+<hr>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
+<p>5<br>2 3 1 4 5</p>
+</blockquote>
+<hr>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><blockquote>
+<p>1</p>
+</blockquote>
+<hr>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>从数组的最后向前遍历，令flag=n，如果碰见a[i]==n，则n-1。遍历完n即为答案。原理即为此题是将不符合递增序列的数字放置最前方，则必定是将所有不符合序列的数字中最大的一个放到最前，因此只要将符合序列的数字个数找出删去即可。</p>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    Author: Yuki</span></span><br><span class="line"><span class="comment">    GitHub: https://github.com/Yuki-14544869/</span></span><br><span class="line"><span class="comment">    Blog:   https://yuki-14544869.github.io/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(linker, <span class="meta-string">"/STACK:1024000000,1024000000"</span>)     <span class="comment">//手动扩栈</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF = 0x3f3f3f3f;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-10</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ff(a, b, c, d) for(int a=b; a&lt;c; a+=d)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fff(a, b, c, d) for(int a=b; a&gt;=c; a-=d)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mm(a, b)       memset(a, b, sizeof(a))</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PIE = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">        freopen(<span class="string">"in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100000</span>+<span class="number">50</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> a[N] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    ff(i,<span class="number">0</span>,n,<span class="number">1</span>)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">int</span> MAX = n;</span><br><span class="line">    fff(i,n<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span>(a[i] == MAX)</span><br><span class="line">            MAX--;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; MAX &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Writting...</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1523-数组重排2&quot;&gt;&lt;a href=&quot;#1523-数组重排2&quot; class=&quot;headerlink&quot; title=&quot;#1523 : 数组重排2&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://hihocoder.com/problemset/problem/1523
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+      <category term="hiho" scheme="/tags/hiho/"/>
+    
+      <category term="贪心" scheme="/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hihoCoder - 1519、逃离迷宫II </title>
+    <link href="/hihoCoder-1519%E3%80%81%E9%80%83%E7%A6%BB%E8%BF%B7%E5%AE%ABII/"/>
+    <id>/hihoCoder-1519、逃离迷宫II/</id>
+    <published>2017-09-05T13:42:14.000Z</published>
+    <updated>2018-11-14T04:08:21.527Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1519-逃离迷宫II"><a href="#1519-逃离迷宫II" class="headerlink" title="#1519 : 逃离迷宫II"></a><a href="http://hihocoder.com/problemset/problem/1519" target="_blank" rel="noopener">#1519 : 逃离迷宫II</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>小Hi被坏女巫抓进里一间有N x M个格子组成的矩阵迷宫。</p>
+<p>有些格子是小Hi可以经过的，我们用’.’表示；有些格子上有障碍物小Hi不能经过，我们用’#’表示。小Hi的起始位置用’S’表示，他需要到达用’T’表示的格子才能逃离迷宫。</p>
+<p>麻烦的是小Hi被坏女巫施了魔法，他只能选择上下左右某一个方向，沿着这个方向一直走，直到遇到障碍物或者迷宫边界才能改变方向。新的方向可以是上下左右四个方向之一。之后他还是只能沿着新的方向一直走直到再次遇到障碍物或者迷宫边界……  </p>
+<p>小Hi想知道他最少改变几次方向才能逃离这个迷宫。</p>
+<hr>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第一行包含两个整数N和M。  (1 &lt;= N, M &lt;= 500)  </p>
+<p>以下N行每行M个字符，代表迷宫。</p>
+<hr>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>一个整数代表答案。如果小Hi没法逃离迷宫，输出-1。</p>
+<hr>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
+<p>5 5<br>S.#.T<br>…..<br>…..<br>…..<br>…..</p>
+</blockquote>
+<hr>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><blockquote>
+<p>2</p>
+</blockquote>
+<hr>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>BFS。往当前方向一直走到无路可走在转弯，一直重复。在节点内用flag标记当前转弯次数。</p>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">    Author: Yuki</span><br><span class="line">    GitHub: https://github.com/Yuki-14544869/</span><br><span class="line">    Blog:   https://yuki-14544869.github.io/</span><br><span class="line">*/</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef long long LL;</span><br><span class="line">const int min = 0x3f3f3f3f;</span><br><span class="line">#define ff(a, b, c, d) for(int a=b; a&lt;c; a+=d)</span><br><span class="line">#define mm(a, b)       memset(a, b, sizeof(a))</span><br><span class="line">namespace BFS &#123;</span><br><span class="line">    int n, m;</span><br><span class="line">    char maps[505][505];</span><br><span class="line">    bool vis[505][505] = &#123;false&#125;;</span><br><span class="line">    int ans[505][505] = &#123;0&#125;;</span><br><span class="line">    int sx, sy, ex, ey;</span><br><span class="line">    int dis[4][2] = &#123;-1,0,0,-1,1,0,0,1&#125;;//0左1上2右3下</span><br><span class="line">    struct node &#123;</span><br><span class="line">        int x, y;</span><br><span class="line">        int cnt;</span><br><span class="line">        node(int _x, int _y, int _cnt):x(_x),y(_y),cnt(_cnt)&#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    bool check(int x, int y) &#123;</span><br><span class="line">        if(x&lt;0 || x&gt;=n || y&lt;0 || y&gt;=m)</span><br><span class="line">            return false;</span><br><span class="line">        return maps[x][y] != &apos;#&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    void init() &#123;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">        ff(i, 0, n, 1)</span><br><span class="line">            ff(j, 0, m, 1) &#123;</span><br><span class="line">                cin &gt;&gt; maps[i][j];</span><br><span class="line">                if(maps[i][j]==&apos;S&apos;)</span><br><span class="line">                    sx=i, sy=j;</span><br><span class="line">                else if(maps[i][j]==&apos;T&apos;)</span><br><span class="line">                    ex=i, ey=j;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int bfs() &#123;</span><br><span class="line">        vis[sx][sy] = true;</span><br><span class="line">        queue&lt;node&gt; q;</span><br><span class="line">        q.push(&#123;sx, sy, 0&#125;);</span><br><span class="line"></span><br><span class="line">        while(!q.empty()) &#123;</span><br><span class="line">            node now = q.front();</span><br><span class="line">            q.pop();</span><br><span class="line"></span><br><span class="line">            ff(i, 0, 4, 1) &#123;</span><br><span class="line">                //cout &lt;&lt; now.x &lt;&lt; &quot; &quot; &lt;&lt; now.y &lt;&lt; endl;</span><br><span class="line">                int x = now.x + dis[i][0];</span><br><span class="line">                int y = now.y + dis[i][1];</span><br><span class="line">                //cout &lt;&lt; x &lt;&lt; &quot; &quot; &lt;&lt; y &lt;&lt; endl;</span><br><span class="line">                if(!check(x, y))</span><br><span class="line">                    continue;</span><br><span class="line">                if(maps[x][y] == &apos;T&apos;)</span><br><span class="line">                    return now.cnt;</span><br><span class="line">                while(check(x+dis[i][0], y+dis[i][1])) &#123;</span><br><span class="line">                    x += dis[i][0];</span><br><span class="line">                    y += dis[i][1];</span><br><span class="line"></span><br><span class="line">                    if(x==ex &amp;&amp; y==ey)</span><br><span class="line">                        return now.cnt;</span><br><span class="line">                &#125;</span><br><span class="line">                if(!vis[x][y]) &#123;</span><br><span class="line">                    int cnt = now.cnt + 1;</span><br><span class="line">                    q.push((node)&#123;x, y, cnt&#125;);</span><br><span class="line">                    vis[x][y] = true;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">using namespace BFS;</span><br><span class="line">void intxt() &#123;</span><br><span class="line">#ifndef ONLINE_JUDGE</span><br><span class="line">    freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);</span><br><span class="line">#endif</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">    intxt();</span><br><span class="line">    init();</span><br><span class="line">//    cout &lt;&lt; n &lt;&lt; &quot; &quot; &lt;&lt; m &lt;&lt; endl;</span><br><span class="line">//    ff(i, 0, n, 1) &#123;</span><br><span class="line">//        ff(j, 0, m, 1)cout &lt;&lt; maps[i][j];</span><br><span class="line">//        cout &lt;&lt; endl;</span><br><span class="line">//    &#125;</span><br><span class="line">//    cout &lt;&lt; sx &lt;&lt; &quot; &quot; &lt;&lt; sy &lt;&lt; endl</span><br><span class="line">//         &lt;&lt; ex &lt;&lt; &quot; &quot; &lt;&lt; ey &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; bfs() &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Writting...</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1519-逃离迷宫II&quot;&gt;&lt;a href=&quot;#1519-逃离迷宫II&quot; class=&quot;headerlink&quot; title=&quot;#1519 : 逃离迷宫II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://hihocoder.com/problemset/problem/1
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+      <category term="hiho" scheme="/tags/hiho/"/>
+    
+      <category term="BFS" scheme="/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hihoCoder - 1330、数组重排</title>
+    <link href="/hihoCoder-1330%E3%80%81%E6%95%B0%E7%BB%84%E9%87%8D%E6%8E%92/"/>
+    <id>/hihoCoder-1330、数组重排/</id>
+    <published>2017-09-05T06:39:29.000Z</published>
+    <updated>2018-11-14T04:08:21.527Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1330-数组重排"><a href="#1330-数组重排" class="headerlink" title="#1330 : 数组重排"></a><a href="http://hihocoder.com/problemset/problem/1330" target="_blank" rel="noopener">#1330 : 数组重排</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>小Hi想知道，如果他每次都按照一种固定的顺序重排数组，那么最少经过几次重排之后数组会恢复初始的顺序？</p>
+<p>具体来讲，给定一个1 - N 的排列 P，小Hi每次重排都是把第 i 个元素放到第 Pi个位置上。例如对于 P = (2, 3, 1)，假设初始数组是(1, 2, 3)，重排一次之后变为(3, 1, 2)，重排两次之后变为(2, 3, 1)，重排三次之后变回(1, 2, 3)。</p>
+<p>被排数组中的元素可以认为是两两不同的。</p>
+<hr>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第一行一个整数 N ，代表数组的长度。 (1 ≤ N ≤ 100)</p>
+<p>第二行N个整数，代表1 - N 的一个排列 P 。</p>
+<hr>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>输出最少重排的次数。</p>
+<hr>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
+<p>3<br>2 3 1</p>
+</blockquote>
+<hr>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><blockquote>
+<p>3</p>
+</blockquote>
+<hr>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>对于每一个点分别通过模拟得出最小步骤，再求每个最小步骤的最小公倍数。</p>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Author: Yuki</span></span><br><span class="line"><span class="comment">GitHub: https://github.com/Yuki-14544869/</span></span><br><span class="line"><span class="comment">Blog:   https://yuki4294967295.cn/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(linker, <span class="meta-string">"/STACK:1024000000,1024000000"</span>) <span class="comment">//手动扩栈</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-10</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ff(a, b, c, d) for (int a = b; a &lt; c; a += d)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fff(a, b, c, d) for (int a = b; a &gt;= c; a -= d)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mm(a, b) memset(a, b, sizeof a)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PIE = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">namespace</span> IO &#123;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MX = <span class="number">4e7</span>;</span><br><span class="line"><span class="keyword">char</span> buf[MX];</span><br><span class="line"><span class="keyword">int</span> c, sz;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    c = <span class="number">0</span>;</span><br><span class="line">    sz = fread(buf, <span class="number">1</span>, MX, <span class="built_in">stdin</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">II</span><span class="params">(<span class="keyword">int</span> &amp;t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(c &lt; sz &amp;&amp; buf[c] != <span class="string">'-'</span> &amp;&amp; (buf[c] &lt; <span class="string">'0'</span> || buf[c] &gt; <span class="string">'9'</span>)) c++;</span><br><span class="line">    <span class="keyword">if</span>(c &gt;= sz) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(buf[c] == <span class="string">'-'</span>) flag = <span class="number">1</span>, c++;</span><br><span class="line">    <span class="keyword">for</span>(t = <span class="number">0</span>; c &lt; sz &amp;&amp; <span class="string">'0'</span> &lt;= buf[c] &amp;&amp; buf[c] &lt;= <span class="string">'9'</span>; c++) t = t * <span class="number">10</span> + buf[c] - <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">if</span>(flag) t = -t;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> IO;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">filein</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">        freopen(<span class="string">"in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"><span class="keyword">int</span> p[<span class="number">105</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">GCD</span><span class="params">(LL a, LL b)</span> </span>&#123;</span><br><span class="line">    LL tmp = a%b;</span><br><span class="line">    <span class="keyword">if</span>(tmp == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    <span class="keyword">return</span> GCD(b, tmp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">LCM</span><span class="params">(LL a, LL b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a*b / GCD(a, b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//ios::sync_with_stdio(false);</span></span><br><span class="line">    filein();</span><br><span class="line">    <span class="comment">//init();</span></span><br><span class="line">    <span class="comment">//II(N);</span></span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N)) &#123;</span><br><span class="line">        mm(p, <span class="number">0</span>);</span><br><span class="line">        ff(i, <span class="number">1</span>, N+<span class="number">1</span>, <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;p[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        LL ans = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(LL i=<span class="number">1</span>; i&lt;=N; ++i) &#123;</span><br><span class="line">            LL tmp = p[i];</span><br><span class="line">            LL cnt = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(tmp!=i) &#123;</span><br><span class="line">                tmp = p[tmp];</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">            ans = LCM(ans, cnt);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//    ff(i, 1, N+1, 1) &#123;</span></span><br><span class="line"><span class="comment">//        cout &lt;&lt; p[i] &lt;&lt; endl;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Writting...</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1330-数组重排&quot;&gt;&lt;a href=&quot;#1330-数组重排&quot; class=&quot;headerlink&quot; title=&quot;#1330 : 数组重排&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://hihocoder.com/problemset/problem/1330&quot; t
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+      <category term="hiho" scheme="/tags/hiho/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hihoCoder - 1328、逃离迷宫</title>
+    <link href="/hihoCoder-1328%E3%80%81%E9%80%83%E7%A6%BB%E8%BF%B7%E5%AE%AB/"/>
+    <id>/hihoCoder-1328、逃离迷宫/</id>
+    <published>2017-09-04T13:03:14.000Z</published>
+    <updated>2018-11-14T04:08:21.527Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1328-逃离迷宫"><a href="#1328-逃离迷宫" class="headerlink" title="#1328 : 逃离迷宫"></a><a href="http://hihocoder.com/problemset/problem/1328" target="_blank" rel="noopener">#1328 : 逃离迷宫</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>小Hi正处在由 N × M 个房间组成的矩阵迷宫中。为了描述方便，我们把左上角的房间的坐标定为(0, 0),右下角房间的坐标定为(N-1, M-1)。每个房间可能是3种状态之一：开放的、关闭的、或者上锁的。</p>
+<p>开放房间用’.’表示。小Hi可以从一个开放房间到达另一个相邻的(上下左右)开放房间。</p>
+<p>关闭房间用’#’表示。小Hi永远不能进入一个关闭的房间。</p>
+<p>上锁的房间用大写字母(‘A’, ‘B’, ‘C’ …)表示。小Hi在取得相应的钥匙前不能进入上锁的房间，而一旦取得钥匙就可以反复进入上锁的房间。每个房间的锁都是不同的，相应的钥匙在迷宫中的某一房间里，小Hi进入该房间就可以取得钥匙。</p>
+<p>小Hi一开始处于一个开放房间，坐标(a, b)。迷宫的出口是一个开放或者上锁的房间，坐标(c, d)。假设小Hi每移动到一个相邻房间需要花费单位1的时间，那么小Hi到达出口最少需要花费多少时间？</p>
+<hr>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第一行包含7个整数: N , M , K , a , b , c , d . 其中N , M是矩阵的行列数；K 是上锁的房间数目，(a, b)是起始位置，(c, d)是出口位置。(1 ≤ N, M ≤ 100, 0 ≤ K ≤ 5, 0 ≤ a, c &lt; N, 0 ≤ b, d &lt; M)</p>
+<p>以下 N 行每行包含 M 个字符，表示迷宫矩阵。</p>
+<p>再以下 K 行每行两个整数 x, y，依次表示上锁房间A , B , C ….的钥匙所在房间坐标。(0 ≤ x &lt; N, 0 ≤ y &lt; M)</p>
+<hr>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>输出到达出口的最短时间。如果小Hi永远到达不了出口，输出-1。</p>
+<hr>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
+<p>4 4 2 0 0 0 3<br>.A.B<br>.#..<br>.#..<br>.#..<br>3 0<br>3 3 </p>
+</blockquote>
+<hr>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><blockquote>
+<p>15</p>
+</blockquote>
+<hr>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>状态压缩。用v[x][y][k]表示在(x,y)这个点是否访问过，v[x][y][z]的值为当前所花的时间，k的二进制表示现在身上有多少个钥匙。</p>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">    Author: Yuki</span><br><span class="line">    GitHub: https://github.com/Yuki-14544869/</span><br><span class="line">    Blog:   https://yuki-14544869.github.io/</span><br><span class="line">*/</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef long long LL;</span><br><span class="line">const int min = 0x3f3f3f3f;</span><br><span class="line">#define ff(a, b, c, d) for(int a=b; a&lt;c; a+=d)</span><br><span class="line">#define mm(a, b)       memset(a, b, sizeof(a))</span><br><span class="line"></span><br><span class="line">typedef struct node&#123;</span><br><span class="line">    int x, y, sum;</span><br><span class="line">&#125;;</span><br><span class="line">char maps[105][105];</span><br><span class="line">int vis[105][105][1&lt;&lt;6];</span><br><span class="line">int dis[4][2] = &#123;-1,0,0,-1,1,0,0,1&#125;;</span><br><span class="line">int n, m, k, sx, sy, ex, ey;</span><br><span class="line">vector&lt;pair&lt;int, int&gt;&gt; keys;</span><br><span class="line">bool check(int x, int y) &#123;</span><br><span class="line">    if(x&lt;0 || x&gt;=n || y&lt;0 || y&gt;=n)</span><br><span class="line">        return false;</span><br><span class="line">    if(maps[x][y]==&apos;#&apos;)</span><br><span class="line">        return false;</span><br><span class="line"></span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line">int bfs() &#123;</span><br><span class="line">    mm(vis, 0);</span><br><span class="line">    vis[sx][sy][0] = 0;</span><br><span class="line">    queue &lt;node&gt; q;</span><br><span class="line">    q.push((node)&#123;sx, sy, 0&#125;);</span><br><span class="line"></span><br><span class="line">    while(!q.empty()) &#123;</span><br><span class="line">        node now = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        if(now.x==ex &amp;&amp; now.y==ey)</span><br><span class="line">            return vis[now.x][now.y][now.sum];</span><br><span class="line"></span><br><span class="line">        ff(i, 0, 4, 1) &#123;</span><br><span class="line">            int nx = now.x+dis[i][0];</span><br><span class="line">            int ny = now.y+dis[i][1];</span><br><span class="line">            if(!check(nx, ny))</span><br><span class="line">                continue;</span><br><span class="line">            if(maps[nx][ny]==&apos;.&apos; &amp;&amp; vis[nx][ny][now.sum]==0) &#123;</span><br><span class="line">                vis[nx][ny][now.sum] = vis[now.x][now.y][now.sum]+1;</span><br><span class="line">                q.push((node)&#123;nx, ny, now.sum&#125;);</span><br><span class="line">            &#125; else if(isdigit(maps[nx][ny])) &#123;</span><br><span class="line">                int sum = now.sum|(1&lt;&lt;(maps[nx][ny]-&apos;0&apos;));</span><br><span class="line">                if(vis[nx][ny][sum])</span><br><span class="line">                    continue;</span><br><span class="line">                vis[nx][ny][sum] = vis[now.x][now.y][now.sum] + 1;</span><br><span class="line">                q.push((node)&#123;nx, ny, sum&#125;);</span><br><span class="line">            &#125; else if(isupper(maps[nx][ny])) &#123;</span><br><span class="line">                if(now.sum&amp;(1&lt;&lt;(maps[nx][ny]-&apos;A&apos;)) &amp;&amp; vis[nx][ny][now.sum]==0) &#123;</span><br><span class="line">                    vis[nx][ny][now.sum] = vis[now.x][now.y][now.sum]  + 1;</span><br><span class="line">                    q.push((node)&#123;nx, ny, now.sum&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">#ifndef ONLINE_JUDGE</span><br><span class="line">    freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);</span><br><span class="line">#endif</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k &gt;&gt; sx &gt;&gt; sy &gt;&gt; ex &gt;&gt; ey;</span><br><span class="line">    ff(i, 0, n, 1)</span><br><span class="line">        ff(j, 0, m, 1)</span><br><span class="line">            cin &gt;&gt; maps[i][j];</span><br><span class="line"></span><br><span class="line">    ff(i, 0, k, 1) &#123;</span><br><span class="line">        int x, y;</span><br><span class="line">        cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        keys.push_back(&#123;x, y&#125;);</span><br><span class="line">        maps[x][y] = &apos;0&apos; + i;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; bfs() &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Writting...</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1328-逃离迷宫&quot;&gt;&lt;a href=&quot;#1328-逃离迷宫&quot; class=&quot;headerlink&quot; title=&quot;#1328 : 逃离迷宫&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://hihocoder.com/problemset/problem/1328&quot; t
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+      <category term="hiho" scheme="/tags/hiho/"/>
+    
+      <category term="BFS" scheme="/tags/BFS/"/>
+    
+      <category term="状态压缩" scheme="/tags/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hihoCoder - 1356、分隔相同整数</title>
+    <link href="/hihoCoder-1356%E3%80%81%E5%88%86%E9%9A%94%E7%9B%B8%E5%90%8C%E6%95%B4%E6%95%B0/"/>
+    <id>/hihoCoder-1356、分隔相同整数/</id>
+    <published>2017-09-02T12:30:50.000Z</published>
+    <updated>2018-11-14T04:08:21.527Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1356-分隔相同整数"><a href="#1356-分隔相同整数" class="headerlink" title="#1356 : 分隔相同整数"></a><a href="http://hihocoder.com/problemset/problem/1356" target="_blank" rel="noopener">#1356 : 分隔相同整数</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>给定一个包含N个整数的数组A。你的任务是将A重新排列，使得任意两个相等的整数在数组中都不相邻。  </p>
+<p>如果存在多个重排后的数组满足条件，输出字典序最小的数组。  </p>
+<p>这里字典序最小指：首先尽量使第一个整数最小，其次使第二个整数最小，以此类推。</p>
+<hr>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第一行包含一个整数N，表示数组的长度。(1 &lt;= N &lt;= 100000)  </p>
+<p>第二行包含N个整数，依次是 A1, A2, … AN。(1 &lt;= Ai &lt;= 1000000000)</p>
+<hr>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>输出字典序最小的重排数组。如果这样的数组不存在，输出-1。</p>
+<hr>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
+<p>4<br>2 1 3 3</p>
+</blockquote>
+<hr>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><blockquote>
+<p>1 3 2 3</p>
+</blockquote>
+<hr>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>与<a href="http://hihocoder.com/problemset/problem/1327" target="_blank" rel="noopener">#1327 : 分隔相同字符</a>思路类似，只不过因为数据量变大了，无法在时间限制内将数组遍历，于是考虑到了STL用以查询，维护一个二元组（x, y）。有以下集中操作：</p>
+<ol>
+<li>插入/删除/修改其中某个元素（x，y）</li>
+<li>查询x的最大值</li>
+<li>查询y最大的二元组中x最小&amp;次小的那个</li>
+<li>查询x最小的二元组</li>
+</ol>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">    Author: Yuki</span><br><span class="line">    GitHub: https://github.com/Yuki-14544869/</span><br><span class="line">    Blog:   https://yuki4294967295.cn/</span><br><span class="line">*/</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef long long LL;</span><br><span class="line">const int min = 0x3f3f3f3f;</span><br><span class="line">#define ff(a, b, c, d) for(int a=b; a&lt;c; a+=d)</span><br><span class="line">#define mm(a, b)       memset(a, b, sizeof(a))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int N;</span><br><span class="line">map&lt;int, int&gt; cnt;</span><br><span class="line">typedef pair&lt;int, int&gt; p;</span><br><span class="line">set&lt;p, greater&lt;p&gt; &gt; s;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">#ifndef ONLINE_JUDGE</span><br><span class="line">    freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);</span><br><span class="line">#endif</span><br><span class="line">    cin &gt;&gt; N;</span><br><span class="line">    int x;</span><br><span class="line">    ff(i, 0, N, 1) &#123;</span><br><span class="line">        cin &gt;&gt; x;</span><br><span class="line">        cnt[x]++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for(auto&amp; x : cnt) &#123;</span><br><span class="line">        s.insert(&#123;x.second, -x.first&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//    for(auto&amp;x : cnt) &#123;</span><br><span class="line">//        cout &lt;&lt; x.first &lt;&lt; &quot; &quot; &lt;&lt; x.second &lt;&lt; endl;</span><br><span class="line">//    &#125;</span><br><span class="line"></span><br><span class="line">    if(s.begin()-&gt;first &gt; (N-1)/2+1) &#123;</span><br><span class="line">        cout &lt;&lt; &quot;-1&quot; &lt;&lt; endl;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    //cout &lt;&lt; &quot;out : &quot; &lt;&lt; N &lt;&lt; endl;</span><br><span class="line">    for(int res, pre=0; N--; pre=res) &#123;</span><br><span class="line">        //cout &lt;&lt; N &lt;&lt; endl;</span><br><span class="line">        int temp = s.begin()-&gt;first;</span><br><span class="line">        if(temp &gt; (N-1)/2+1) &#123;</span><br><span class="line">            auto it = s.begin();</span><br><span class="line">            if(it-&gt;second == pre)</span><br><span class="line">                it++;</span><br><span class="line">            res = -it-&gt;second;</span><br><span class="line">            if(it-&gt;first==1)</span><br><span class="line">                cnt.erase(res);</span><br><span class="line">            else &#123;</span><br><span class="line">                s.insert(&#123;it-&gt;first-1, it-&gt;second&#125;);</span><br><span class="line">                cnt[res]--;</span><br><span class="line">            &#125;</span><br><span class="line">            s.erase(it);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            auto it = cnt.begin();</span><br><span class="line">            if(it-&gt;first==pre)</span><br><span class="line">                it++;</span><br><span class="line">            res = it-&gt;first;</span><br><span class="line">            s.erase(&#123;it-&gt;second, -res&#125;);</span><br><span class="line">            if(it-&gt;second==1)</span><br><span class="line">                cnt.erase(it);</span><br><span class="line">            else &#123;</span><br><span class="line">                it-&gt;second--;</span><br><span class="line">                s.insert(&#123;it-&gt;second, -res&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; res &lt;&lt; &apos; &apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Writting...</span><br></pre></td></tr></table></figure>
+<h2 id="参考材料"><a href="#参考材料" class="headerlink" title="参考材料"></a>参考材料</h2><p><a href="http://www.cnblogs.com/Patt/p/5747698.html" target="_blank" rel="noopener">hihocoder 1356 分隔相同整数</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1356-分隔相同整数&quot;&gt;&lt;a href=&quot;#1356-分隔相同整数&quot; class=&quot;headerlink&quot; title=&quot;#1356 : 分隔相同整数&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://hihocoder.com/problemset/problem/1
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+      <category term="hiho" scheme="/tags/hiho/"/>
+    
+      <category term="贪心" scheme="/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hihoCoder - 1327、分隔相同字符</title>
+    <link href="/hihoCoder-1327%E3%80%81%E5%88%86%E9%9A%94%E7%9B%B8%E5%90%8C%E5%AD%97%E7%AC%A6/"/>
+    <id>/hihoCoder-1327、分隔相同字符/</id>
+    <published>2017-09-02T06:33:04.000Z</published>
+    <updated>2018-11-14T04:08:21.527Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1327-分隔相同字符"><a href="#1327-分隔相同字符" class="headerlink" title="#1327 : 分隔相同字符"></a><a href="http://hihocoder.com/problemset/problem/1327" target="_blank" rel="noopener">#1327 : 分隔相同字符</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>给定一个只包含小写字母’a’-‘z’的字符串 S ，你需要将 S 中的字符重新排序，使得任意两个相同的字符不连在一起。</p>
+<p>如果有多个重排后字符串满足条件，输出字典序最小的一个。</p>
+<p>如果不存在满足条件的字符串，输出INVALID。</p>
+<hr>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>字符串S。(1 ≤ |S| ≤ 100000)</p>
+<hr>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>输出字典序最小的答案或者INVALID。</p>
+<hr>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
+<p>aaabc</p>
+</blockquote>
+<hr>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><blockquote>
+<p>abaca</p>
+</blockquote>
+<hr>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>贪心，由题意易知VALID的充要条件即为此字母的长度小于整个字符串长度len/2向上取整。在每次贪心之后重新check新字符串是否VALID就可。</p>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">    Author: Yuki</span><br><span class="line">    GitHub: https://github.com/Yuki-14544869/</span><br><span class="line">    Blog:   https://yuki-14544869.github.io/</span><br><span class="line">*/</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef long long LL;</span><br><span class="line">const int min = 0x3f3f3f3f;</span><br><span class="line">#define ff(a, b, c, d) for(int a=b; a&lt;c; a+=d)</span><br><span class="line">#define mm(a, b)       memset(a, b, sizeof(a))</span><br><span class="line"></span><br><span class="line">string input;</span><br><span class="line">int cnt[26] = &#123;0&#125;;</span><br><span class="line"></span><br><span class="line">bool check(int x) &#123;</span><br><span class="line">    ff(i, 0, 26, 1)</span><br><span class="line">        if(cnt[i]&gt;(x-1)/2+1)</span><br><span class="line">            return false;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">#ifndef ONLINE_JUDGE</span><br><span class="line">    freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);</span><br><span class="line">#endif</span><br><span class="line">    cin &gt;&gt; input;</span><br><span class="line">    int len = input.size();</span><br><span class="line">    //cout &lt;&lt; len &lt;&lt; endl;</span><br><span class="line">    ff(i, 0, len, 1)</span><br><span class="line">        cnt[input[i]-&apos;a&apos;]++;</span><br><span class="line">    if(!check(len)) &#123;</span><br><span class="line">        cout &lt;&lt; &quot;INVALID&quot; &lt;&lt; endl;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">/*</span><br><span class="line">    int pre = -1;</span><br><span class="line">    ff(i, 0, len, 1) &#123;</span><br><span class="line">        ff(j, 0, 26, 1) &#123;</span><br><span class="line">            if(cnt[j]&gt;0 &amp;&amp; j!=pre) &#123;</span><br><span class="line">                cnt[j]--;</span><br><span class="line">                if(check(len-1)) &#123;</span><br><span class="line">                    putchar(&apos;a&apos;+j);</span><br><span class="line">                    pre = j;</span><br><span class="line">                    len--;</span><br><span class="line">                    break;</span><br><span class="line">                &#125; else cnt[j]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">    int pre = -1;</span><br><span class="line">    ff(i, 0, input.size(), 1) &#123;</span><br><span class="line">        ff(j, 0, 26, 1) &#123;</span><br><span class="line">            if(cnt[j] &amp;&amp; j!=pre) &#123;</span><br><span class="line">                cnt[j]--;</span><br><span class="line">                if(check(len-1)) &#123;</span><br><span class="line">                    putchar(&apos;a&apos;+j);</span><br><span class="line">                    pre=j;</span><br><span class="line">                    len--;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                else cnt[j]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Writing...</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1327-分隔相同字符&quot;&gt;&lt;a href=&quot;#1327-分隔相同字符&quot; class=&quot;headerlink&quot; title=&quot;#1327 : 分隔相同字符&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://hihocoder.com/problemset/problem/1
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+      <category term="hiho" scheme="/tags/hiho/"/>
+    
+      <category term="贪心" scheme="/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hihoCoder-1040、矩形判断</title>
+    <link href="/hihoCoder-1040%E3%80%81%E7%9F%A9%E5%BD%A2%E5%88%A4%E6%96%AD/"/>
+    <id>/hihoCoder-1040、矩形判断/</id>
+    <published>2017-08-25T07:11:33.000Z</published>
+    <updated>2018-11-14T04:08:21.519Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1040-矩形判断"><a href="#1040-矩形判断" class="headerlink" title="#1040 : 矩形判断"></a><a href="http://hihocoder.com/problemset/problem/1040" target="_blank" rel="noopener">#1040 : 矩形判断</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>给出平面上4条线段，判断这4条线段是否恰好围成一个面积大于0的矩形。</p>
+<hr>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>输入第一行是一个整数T(1&lt;=T&lt;=100)，代表测试数据的数量。<br>每组数据包含4行，每行包含4个整数x1, y1, x2, y2 (0 &lt;= x1, y1, x2, y2 &lt;= 100000)；其中(x1, y1), (x2,y2)代表一条线段的两个端点。</p>
+<hr>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>每组数据输出一行YES或者NO，表示输入的4条线段是否恰好围成矩形。</p>
+<hr>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
+<p>3<br>0 0 0 1<br>1 0 1 1<br>0 1 1 1<br>1 0 0 0<br>0 1 2 3<br>1 0 3 2<br>3 2 2 3<br>1 0 0 1<br>0 1 1 0<br>1 0 2 0<br>2 0 1 1<br>1 1 0 1</p>
+</blockquote>
+<hr>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><blockquote>
+<p>YES<br>YES<br>NO</p>
+</blockquote>
+<hr>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题目思路简单。首先判断给出的四条线段能不能组成四边形，如果可以，在判断这个四边形是不是矩形。 </p>
+<p>判断是不是四边形：<br>输入了四条线段，总共有八个点。如果这八个点中，两两重合，总共有四个点，那么一定是一个四边形。判断八个点是不是两两重合，用set即可。set插入八个点，如果大小为四，那么就是两两重合。<br>一个四边形，如果一条边和另外三条边要么平行，要么垂直，那么就是矩形。判断平行或垂直，用斜率即可。</p>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">    Author: Yuki</span><br><span class="line">    GitHub: https://github.com/Yuki-14544869/</span><br><span class="line">    Blog:   https://yuki-14544869.github.io/</span><br><span class="line">*/</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">typedef long long LL;</span><br><span class="line">const int min = 0x3f3f3f3f;</span><br><span class="line">#define mp make_pair</span><br><span class="line">namespace Geometry &#123;</span><br><span class="line">    struct Point &#123;</span><br><span class="line">        int x, y;</span><br><span class="line">        Point() &#123;&#125;</span><br><span class="line">        Point(int _x, int _y):x(_x), y(_y) &#123;&#125;;</span><br><span class="line"></span><br><span class="line">        bool operator &lt; (const Point&amp; p) const &#123;</span><br><span class="line">            //优先判断横坐标</span><br><span class="line">            if(x&lt;p.x || (x==p.x&amp;&amp;y&lt;p.y))</span><br><span class="line">                return true;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        bool operator == (const Point p) const &#123;</span><br><span class="line">            return (x==p.x &amp;&amp; y==p.y);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    struct Line &#123;</span><br><span class="line">        Point a, b;</span><br><span class="line">        double dis;</span><br><span class="line">        double k;</span><br><span class="line">        Line() &#123;&#125;</span><br><span class="line">        Line(Point _a, Point _b):a(_a), b(_b) &#123;</span><br><span class="line">            dis = sqrt((_a.x-_b.x)*(_a.x-_b.x) + (_a.y-_b.y)*(_a.y-_b.y));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    struct Vector &#123;</span><br><span class="line">        Point a, b;</span><br><span class="line">        double dis;</span><br><span class="line">        Vector() &#123;&#125;</span><br><span class="line">        Vector(Point _a, Point _b):a(_a), b(_b) &#123;</span><br><span class="line">            dis = sqrt((_a.x-_b.x)*(_a.x-_b.x) + (_a.y-_b.y)*(_a.y-_b.y));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">using namespace Geometry;</span><br><span class="line">bool JudgePoint(Line *l) &#123;</span><br><span class="line">    set&lt;Point&gt; p;</span><br><span class="line">    for(int i=0; i&lt;4; ++i) &#123;</span><br><span class="line">        p.insert(l[i].a);</span><br><span class="line">        p.insert(l[i].b);</span><br><span class="line">    &#125;</span><br><span class="line">    return (p.size() == 4);</span><br><span class="line">&#125;</span><br><span class="line">bool JudgeRect(Line *l) &#123;</span><br><span class="line">    for(int i=1; i&lt;4; ++i) &#123;</span><br><span class="line">        //判断是否垂直</span><br><span class="line">        if((l[0].a.y-l[0].b.y)*(l[i].a.y-l[i].b.y) == -(l[0].a.x-l[0].b.x)*(l[i].a.x-l[i].b.x))</span><br><span class="line">            continue;</span><br><span class="line">        //判断是否平行</span><br><span class="line">        if((l[0].a.y-l[0].b.y)*(l[i].a.x-l[i].b.x) == (l[0].a.x-l[0].b.x)*(l[i].a.y-l[i].b.y))</span><br><span class="line">            continue;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">#ifndef ONLINE_JUDGE</span><br><span class="line">    freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);</span><br><span class="line">#endif</span><br><span class="line">    int T;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    while(T--) &#123;</span><br><span class="line">        Line l[4];</span><br><span class="line">        int tmp1, tmp2, tmp3, tmp4;</span><br><span class="line">        for (int i = 0; i &lt; 4; ++i) &#123;</span><br><span class="line">            cin &gt;&gt; l[i].a.x &gt;&gt; l[i].a.y &gt;&gt; l[i].b.x &gt;&gt; l[i].b.y;</span><br><span class="line">        &#125;</span><br><span class="line">        if(!JudgePoint(l)) &#123;</span><br><span class="line">            cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;</span><br><span class="line">            continue;</span><br><span class="line">        &#125; else if(!JudgeRect(l)) &#123;</span><br><span class="line">            cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;</span><br><span class="line">            continue;</span><br><span class="line">        &#125; else cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    /*</span><br><span class="line">    Author: Yuki</span><br><span class="line">    GitHub: https://github.com/Yuki-14544869/</span><br><span class="line">    Blog:   https://yuki-14544869.github.io/</span><br><span class="line">    */</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner in = new Scanner(System.in);</span><br><span class="line">        int T = in.nextInt();</span><br><span class="line">        int[][] mat = new int[4][4];</span><br><span class="line">        while(T-- &gt; 0) &#123;</span><br><span class="line">            for(int i=0; i&lt;4; ++i) &#123;</span><br><span class="line">                for(int j=0; j&lt;4; ++j) &#123;</span><br><span class="line">                    mat[i][j] = in.nextInt();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if(!judgePoint(mat)) &#123;</span><br><span class="line">                System.out.println(&quot;NO&quot;);</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            if(!judgeRect(mat))</span><br><span class="line">                System.out.println(&quot;NO&quot;);</span><br><span class="line">            else System.out.println(&quot;YES&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        in.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static boolean judgePoint(int[][] mat) &#123;</span><br><span class="line">        List&lt;String&gt; points = new ArrayList&lt;String&gt;();</span><br><span class="line">        for(int i=0; i&lt;4; ++i) &#123;</span><br><span class="line">            for(int j=0; j&lt;4; j+=2) &#123;</span><br><span class="line">                String point = String.valueOf(mat[i][j]) + &quot;,&quot; + String.valueOf(mat[i][j+1]);</span><br><span class="line">                if(!points.contains(point)) &#123;</span><br><span class="line">                    points.add(point);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return (points.size() == 4);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static boolean judgeRect(int[][] mat) &#123;</span><br><span class="line">        for(int i=1; i&lt;4; ++i) &#123;</span><br><span class="line">            //判断是否垂直</span><br><span class="line">            if((mat[0][1]-mat[0][3])*(mat[i][1]-mat[i][3]) == -(mat[0][0]-mat[0][2])*(mat[i][0]-mat[i][2]))&#123;</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            //判断是否平行</span><br><span class="line">            if((mat[0][1]-mat[0][3])*(mat[i][0]-mat[i][2]) == (mat[0][0]-mat[0][2])*(mat[i][1]-mat[i][3])) &#123;</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1040-矩形判断&quot;&gt;&lt;a href=&quot;#1040-矩形判断&quot; class=&quot;headerlink&quot; title=&quot;#1040 : 矩形判断&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://hihocoder.com/problemset/problem/1040&quot; t
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+      <category term="hiho" scheme="/tags/hiho/"/>
+    
+      <category term="几何" scheme="/tags/%E5%87%A0%E4%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hihoCoder-1039、字符消除</title>
+    <link href="/hihoCoder-1039%E3%80%81%E5%AD%97%E7%AC%A6%E6%B6%88%E9%99%A4/"/>
+    <id>/hihoCoder-1039、字符消除/</id>
+    <published>2017-08-25T06:02:11.000Z</published>
+    <updated>2018-11-14T04:08:21.519Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1039-字符消除"><a href="#1039-字符消除" class="headerlink" title="#1039 : 字符消除"></a><a href="http://hihocoder.com/problemset/problem/1039" target="_blank" rel="noopener">#1039 : 字符消除</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>小Hi最近在玩一个字符消除游戏。给定一个只包含大写字母”ABC”的字符串s，消除过程是如下进行的：</p>
+<p>1)如果s包含长度超过1的由相同字母组成的子串，那么这些子串会被同时消除，余下的子串拼成新的字符串。例如”ABCCBCCCAA”中”CC”,”CCC”和”AA”会被同时消除，余下”AB”和”B”拼成新的字符串”ABB”。<br>2)上述消除会反复一轮一轮进行，直到新的字符串不包含相邻的相同字符为止。例如”ABCCBCCCAA”经过一轮消除得到”ABB”，再经过一轮消除得到”A”</p>
+<p>游戏中的每一关小Hi都会面对一个字符串s。在消除开始前小Hi有机会在s中任意位置(第一个字符之前、最后一个字符之后以及相邻两个字符之间)插入任意一个字符(‘A’,’B’或者’C’)，得到字符串t。t经过一系列消除后，小Hi的得分是消除掉的字符的总数。</p>
+<p>请帮助小Hi计算要如何插入字符，才能获得最高得分。</p>
+<hr>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>输入第一行是一个整数T(1&lt;=T&lt;=100)，代表测试数据的数量。</p>
+<p>之后T行每行一个由’A’’B’’C’组成的字符串s，长度不超过100。</p>
+<hr>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>对于每一行输入的字符串，输出小Hi最高能得到的分数。</p>
+<hr>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>第一组数据：在”ABCBCCCAA”的第2个字符后插入’C’得到”ABCCBCCCAA”，消除后得到”A”，总共消除9个字符(包括插入的’C’)。</p>
+<p>第二组数据：”AAA”插入’A’得到”AAAA”，消除后得到””，总共消除4个字符。</p>
+<p>第三组数据：无论是插入字符后得到”AABC”,”ABBC”还是”ABCC”都最多消除2个字符</p>
+<hr>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
+<p>3<br>ABCBCCCAA<br>AAA<br>ABC</p>
+</blockquote>
+<hr>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><blockquote>
+<p>9<br>4<br>2</p>
+</blockquote>
+<hr>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>在给定字符串中的任意位置插入’A’、’B’、’C’中的任意一个字符，然后计算插入后的字符经过消除后最短的字符串长度。</li>
+<li>在计算字符消除后最短长度时，通过递归反复计算。</li>
+<li>记录每次插入一个字符后经过第2步计算后最短的字符串长度min，最后原字符串的长度-min+1。</li>
+</ol>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    Author: Yuki</span></span><br><span class="line"><span class="comment">    GitHub: https://github.com/Yuki-14544869/</span></span><br><span class="line"><span class="comment">    Blog:   https://yuki-14544869.github.io/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cal</span><span class="params">(<span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = p.size();</span><br><span class="line">    <span class="keyword">if</span>(p.empty())</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">string</span> t = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">    p += <span class="string">"*"</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; p[i]; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(p[i] != p[i<span class="number">-1</span>]) &#123;</span><br><span class="line">            <span class="keyword">if</span>(l == i<span class="number">-1</span>) &#123;</span><br><span class="line">                t += p[i<span class="number">-1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            l = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(t.size() == len)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> len-t.size()+cal(t);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">    freopen(<span class="string">"in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--) &#123;</span><br><span class="line">        <span class="built_in">string</span> s;</span><br><span class="line">        <span class="built_in">string</span> insert[<span class="number">3</span>] = &#123;<span class="string">"A"</span>,<span class="string">"B"</span>,<span class="string">"C"</span>&#125;;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; s[i]; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">3</span>; ++j) &#123;</span><br><span class="line">                <span class="built_in">string</span> tmp = s;</span><br><span class="line">                tmp.insert(i, insert[j]);</span><br><span class="line">                ans = max(ans, cal(tmp));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    Author: Yuki</span></span><br><span class="line"><span class="comment">    GitHub: https://github.com/Yuki-14544869/</span></span><br><span class="line"><span class="comment">    Blog:   https://yuki-14544869.github.io/</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> T = in.nextInt();</span><br><span class="line">        <span class="keyword">while</span>(T-- &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            StringBuffer input = <span class="keyword">new</span> StringBuffer(in.next());</span><br><span class="line">            <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> len = input.length();</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; ++i) &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">char</span> ch=<span class="string">'A'</span>; ch&lt;=<span class="string">'C'</span>; ++ch) &#123;</span><br><span class="line">                    StringBuffer tmp = <span class="keyword">new</span> StringBuffer(input);</span><br><span class="line">                    tmp = tmp.insert(i, ch);</span><br><span class="line">                    ans = Math.max(ans, cal(tmp));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(ans);</span><br><span class="line">        &#125;</span><br><span class="line">        in.close();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">cal</span><span class="params">(StringBuffer string)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = string.length();</span><br><span class="line">        <span class="keyword">if</span>(len&lt;=<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        StringBuffer buffer = <span class="keyword">new</span> StringBuffer(<span class="string">""</span>);</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">        string.append(<span class="string">"*"</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;len+<span class="number">1</span>; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(string.charAt(i) != string.charAt(i-<span class="number">1</span>)) &#123;</span><br><span class="line">                <span class="keyword">if</span>(l == i-<span class="number">1</span>) &#123;</span><br><span class="line">                    buffer.append(string.charAt(i-<span class="number">1</span>));</span><br><span class="line">                &#125;</span><br><span class="line">                l = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (buffer.length() == len) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> len-buffer.length()+cal(buffer);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1039-字符消除&quot;&gt;&lt;a href=&quot;#1039-字符消除&quot; class=&quot;headerlink&quot; title=&quot;#1039 : 字符消除&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://hihocoder.com/problemset/problem/1039&quot; t
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+      <category term="hiho" scheme="/tags/hiho/"/>
+    
+      <category term="字符串" scheme="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ STL总结</title>
+    <link href="/C-STL%E6%80%BB%E7%BB%93/"/>
+    <id>/C-STL总结/</id>
+    <published>2017-08-24T08:39:01.000Z</published>
+    <updated>2018-11-14T04:08:21.519Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="C-STL总结"><a href="#C-STL总结" class="headerlink" title="C++ STL总结"></a>C++ STL总结</h1><h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><h3 id="length-amp-amp-size"><a href="#length-amp-amp-size" class="headerlink" title="length &amp;&amp; size"></a>length &amp;&amp; size</h3><p><code>size_t size() const noexcept;</code><strong>返回 string 长度。</strong></p>
+<blockquote>
+<p>string::length() 与 string::size() 完全相同。</p>
+</blockquote>
+<h3 id="substr"><a href="#substr" class="headerlink" title="substr"></a>substr</h3><p><code>string substr (size_t pos = 0, size_t len = npos) const;</code><strong>产生子串</strong><br>返回一个新建的初始化为 string 对象的子串的拷贝 string 对象。</p>
+<p>子串是，在字符位置 pos 开始，跨越 len 个字符（或直到字符串的结尾，以先到者为准）对象的部分。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> str=<span class="string">"We think in generalities, but we live in details."</span>;</span><br><span class="line"><span class="built_in">string</span> str2 = str.substr (<span class="number">3</span>,<span class="number">5</span>);     <span class="comment">// "think"</span></span><br><span class="line"><span class="built_in">string</span> str3 = str.substr (<span class="number">3</span>);     <span class="comment">// get from "think" to the end</span></span><br></pre></td></tr></table></figure>
+<h3 id="string"><a href="#string" class="headerlink" title="string()"></a>string()</h3><p><code>String(number, character)</code><strong>返回 string</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">z=<span class="built_in">string</span>(<span class="number">3</span>,<span class="string">"w"</span>)   <span class="comment">//"www"</span></span><br><span class="line">z=<span class="built_in">string</span>(<span class="number">3</span>,<span class="string">"aw"</span>)  <span class="comment">//"awa"</span></span><br><span class="line">z=<span class="built_in">string</span>(<span class="number">3</span>,<span class="string">"www"</span>) <span class="comment">//"www"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; v;</span><br><span class="line">v.push_back(<span class="string">'a'</span>);</span><br><span class="line">v.push_back(<span class="string">'b'</span>);</span><br><span class="line">v.push_back(<span class="string">'c'</span>);</span><br><span class="line">z = <span class="built_in">string</span>(v.begin(), v.end()); <span class="comment">//"abc"</span></span><br></pre></td></tr></table></figure>
+<h3 id="empty"><a href="#empty" class="headerlink" title="empty"></a>empty</h3><p><strong>true if the string length is 0, false otherwise.</strong></p>
+<h3 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h3><h4 id="返回插入的第一个字母的-iterator-以及修改过后的-str"><a href="#返回插入的第一个字母的-iterator-以及修改过后的-str" class="headerlink" title="返回插入的第一个字母的 iterator 以及修改过后的 str"></a>返回插入的第一个字母的 iterator 以及修改过后的 str</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// inserting into a string</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str=<span class="string">"to be question"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str2=<span class="string">"the "</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str3=<span class="string">"or not to be"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span>::iterator it;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// used in the same order as described above:</span></span><br><span class="line">  str.insert(<span class="number">6</span>,str2);                 <span class="comment">// to be (the )question</span></span><br><span class="line">  str.insert(<span class="number">6</span>,str3,<span class="number">3</span>,<span class="number">4</span>);             <span class="comment">// to be (not )the question</span></span><br><span class="line">  str.insert(<span class="number">10</span>,<span class="string">"that is cool"</span>,<span class="number">8</span>);    <span class="comment">// to be not (that is )the question</span></span><br><span class="line">  str.insert(<span class="number">10</span>,<span class="string">"to be "</span>);            <span class="comment">// to be not (to be )that is the question</span></span><br><span class="line">  str.insert(<span class="number">15</span>,<span class="number">1</span>,<span class="string">':'</span>);               <span class="comment">// to be not to be(:) that is the question</span></span><br><span class="line">  it = str.insert(str.begin()+<span class="number">5</span>,<span class="string">','</span>); <span class="comment">// to be(,) not to be: that is the question</span></span><br><span class="line">  str.insert (str.end(),<span class="number">3</span>,<span class="string">'.'</span>);       <span class="comment">// to be, not to be: that is the question(...)</span></span><br><span class="line">  str.insert (it+<span class="number">2</span>,str3.begin(),str3.begin()+<span class="number">3</span>); <span class="comment">// (or )</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;C-STL总结&quot;&gt;&lt;a href=&quot;#C-STL总结&quot; class=&quot;headerlink&quot; title=&quot;C++ STL总结&quot;&gt;&lt;/a&gt;C++ STL总结&lt;/h1&gt;&lt;h2 id=&quot;String&quot;&gt;&lt;a href=&quot;#String&quot; class=&quot;headerli
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hihoCoder-1000、A + B</title>
+    <link href="/hihoCoder-1000-A-B/"/>
+    <id>/hihoCoder-1000-A-B/</id>
+    <published>2017-08-24T08:17:38.000Z</published>
+    <updated>2018-11-14T04:08:21.519Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1000-A-B"><a href="#1000-A-B" class="headerlink" title="#1000 : A + B"></a><a href="http://hihocoder.com/problemset/problem/1000" target="_blank" rel="noopener">#1000 : A + B</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>求两个整数A+B的和</p>
+<hr>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>输入包含多组数据。</p>
+<p>每组数据包含两个整数A(1 ≤ A ≤ 100)和B(1 ≤ B ≤ 100)。</p>
+<hr>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>对于每组数据输出A+B的和。</p>
+<hr>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
+<p>1 2<br>3 4</p>
+</blockquote>
+<hr>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><blockquote>
+<p>3<br>7</p>
+</blockquote>
+<hr>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>经典题</p>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    Author: Yuki</span></span><br><span class="line"><span class="comment">    GitHub: https://github.com/Yuki-14544869/</span></span><br><span class="line"><span class="comment">    Blog:   https://yuki-14544869.github.io/</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a+b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    Author: Yuki</span></span><br><span class="line"><span class="comment">    GitHub: https://github.com/Yuki-14544869/</span></span><br><span class="line"><span class="comment">    Blog:   https://yuki-14544869.github.io/</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span>(in.hasNext()) &#123;</span><br><span class="line">            <span class="keyword">int</span> a = in.nextInt();</span><br><span class="line">            <span class="keyword">int</span> b = in.nextInt();</span><br><span class="line">            System.out.println(a+b);</span><br><span class="line">        &#125;</span><br><span class="line">        in.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1000-A-B&quot;&gt;&lt;a href=&quot;#1000-A-B&quot; class=&quot;headerlink&quot; title=&quot;#1000 : A + B&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://hihocoder.com/problemset/problem/1000&quot; ta
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+      <category term="hiho" scheme="/tags/hiho/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hihoCoder-1326、有序01字符串</title>
+    <link href="/hihoCoder-1326-%E6%9C%89%E5%BA%8F01%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>/hihoCoder-1326-有序01字符串/</id>
+    <published>2017-08-24T01:14:11.000Z</published>
+    <updated>2018-11-14T04:08:21.527Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1326-有序01字符串"><a href="#1326-有序01字符串" class="headerlink" title="#1326 : 有序01字符串"></a><a href="http://hihocoder.com/problemset/problem/1326" target="_blank" rel="noopener">#1326 : 有序01字符串</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>对于一个01字符串，你每次可以将一个0修改成1，或者将一个1修改成0。那么，你最少需要修改多少次才能把一个01串 S 变为有序01字符串(有序01字符串是指满足所有0在所有1之前的01串)呢？</p>
+<hr>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第一行是一个整数 T，代表测试数据的组数。(1 ≤ T ≤ 10)</p>
+<p>以下T行每行包含一个01串 S 。(1 ≤ |S| ≤ 1000)</p>
+<hr>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>对于每组测试数据输出最少需要修改的次数。</p>
+<hr>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
+<p>3<br> 000111<br> 010001<br> 100000 </p>
+</blockquote>
+<hr>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><blockquote>
+<p>0<br> 1<br> 1</p>
+</blockquote>
+<hr>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>最终总会按照某位分段，前面位0，后面为1。那么改动的次数，就是分段的那位前面的1的个数和后面的0的个数的和。统计每一位前面的1的个数个后面的0的个数，找出和的最小值，就可以了。不需要考虑这一位本身是1还是0，因为不管是0还是1都不需要改变。 比如：  </p>
+<blockquote>
+<p>字符串 ：        0 0 1 0 1 0 0 1 0 1 1 1 0 1<br>  前面的1的个数：   0 0 0 1 1 2 2 2 3 3 4 5 6 6<br>  后面的0的个数:    6 5 5 4 4 3 2 2 1 1 1 1 0 0<br>  个数和 ：         6 5 5 5 5 5 4 4 4 4 5 6 6 6  </p>
+</blockquote>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">    Author: Yuki</span><br><span class="line">    GitHub: https://github.com/Yuki-14544869/</span><br><span class="line">    Blog:   https://yuki-14544869.github.io/</span><br><span class="line">*/</span><br><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">const int INF = 0x3f3f3f3f;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int T;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    while(T--) &#123;</span><br><span class="line">        string s;</span><br><span class="line">        cin &gt;&gt; s;</span><br><span class="line">        int len = s.length();</span><br><span class="line">        int ans = INF;</span><br><span class="line">        int cnt0, cnt1;</span><br><span class="line">        for(int i=0; i&lt;=len; ++i) &#123;</span><br><span class="line">            cnt0 = cnt1 = 0;</span><br><span class="line">            for(int j=i-1; j&gt;=0; --j)</span><br><span class="line">                cnt0 += s[j]==&apos;0&apos; ? 0:1;</span><br><span class="line">            for(int j=i; s[j]; ++j)</span><br><span class="line">                cnt1 += s[j]==&apos;1&apos; ? 0:1;</span><br><span class="line">            ans = min(ans, cnt0+cnt1);</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">    Author: Yuki</span><br><span class="line">    GitHub: https://github.com/Yuki-14544869/</span><br><span class="line">    Blog:   https://yuki-14544869.github.io/</span><br><span class="line">*/</span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner in = new Scanner(System.in);</span><br><span class="line">        int T = in.nextInt();</span><br><span class="line">        while(T-- &gt; 0) &#123;</span><br><span class="line">            char[] list = in.next().toCharArray();</span><br><span class="line">            int l = list.length;</span><br><span class="line">            int cnt0, cnt1;</span><br><span class="line">            int ans = 0x3f3f3f3f;</span><br><span class="line">            for(int i=0; i&lt;=l; ++i) &#123;</span><br><span class="line">                cnt0 = cnt1 = 0;</span><br><span class="line">                for(int j=i-1; j&gt;=0; --j) &#123;</span><br><span class="line">                    if(list[j] == &apos;0&apos;)</span><br><span class="line">                        cnt0 += 0;</span><br><span class="line">                    else cnt0 += 1;</span><br><span class="line">                &#125;</span><br><span class="line">                for(int j=i; j&lt;l; ++j) &#123;</span><br><span class="line">                    if(list[j] == &apos;1&apos;)</span><br><span class="line">                        cnt1 += 0;</span><br><span class="line">                    else cnt1 += 1;</span><br><span class="line">                &#125;</span><br><span class="line">                if(ans &gt; cnt0+cnt1)</span><br><span class="line">                    ans = cnt0+cnt1;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(ans);</span><br><span class="line">        &#125;</span><br><span class="line">        in.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1326-有序01字符串&quot;&gt;&lt;a href=&quot;#1326-有序01字符串&quot; class=&quot;headerlink&quot; title=&quot;#1326 : 有序01字符串&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://hihocoder.com/problemset/proble
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+      <category term="hiho" scheme="/tags/hiho/"/>
+    
+      <category term="字符串" scheme="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为何程序员喜欢将 INF 设置为 0x3f3f3f3f ？(转)</title>
+    <link href="/%E4%B8%BA%E4%BD%95%E7%A8%8B%E5%BA%8F%E5%91%98%E5%96%9C%E6%AC%A2%E5%B0%86INF%E8%AE%BE%E7%BD%AE%E4%B8%BA0x3f3f3f3f%EF%BC%9F/"/>
+    <id>/为何程序员喜欢将INF设置为0x3f3f3f3f？/</id>
+    <published>2017-08-23T08:48:45.000Z</published>
+    <updated>2018-11-14T04:08:21.527Z</updated>
+    
+    <content type="html"><![CDATA[<p>在<strong>算法</strong>竞赛中，我们常常需要用到一个“无穷大”的值，对于我来说，大多数时间我会根据具体问题取一个99999999之类的数（显得很不专业啊！）</p>
+<p>在网上看别人代码的时候，经常会看到他们把INF设为 0x7fffffff ，奇怪为什么设一个这么奇怪的十六进制数，一查才知道，因为这是 32-bit int 的最大值。如果这个无穷大只用于一般的比较（比如求最小值时 min 变量的初值），那么 0x7fffffff 确实是一个完美的选择。</p>
+<p>但是更多情况下， 0x7fffffff 并不是一个好的选择，比如在最短路径算法中，我们使用松弛操作：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(d[u]+w[u][v]&lt;d[v])</span><br><span class="line">    d[v]=d[u]+w[u][v];</span><br></pre></td></tr></table></figure>
+<p>如果 u,v 之间没有边，那么 w[u][v]=INF ，如果我们的 INF 取 0x7fffffff ，那么 d[u]+w[u][v] 会溢出而变成负数，我们的松弛操作便出错了！</p>
+<p>准确来说， 0x7fffffff 不能满足“无穷大加一个有穷的数依然是无穷大”这个条件，它会变成了一个很小的负数。</p>
+<p>更进一步的，如果有一个数能够满足“无穷大加无穷大依然是无穷大”，那么就更好了！</p>
+<p>前阵子无意中看到了一个不一样的取值， INF=0x3f3f3f3f ，这时我又郁闷了，这个值又代表的是什么？于是我去寻找答案，发现这个值的设置真的很精妙！</p>
+<p>0x3f3f3f3f的十进制是1061109567，是10^9级别的（和0x7fffffff一个数量级），而一般场合下的数据都是小于10^9的，所以它可以作为无穷大使用而不致出现数据大于无穷大的情形。</p>
+<p>另一方面，由于一般的数据都不会大于10^9，所以当我们把无穷大加上一个数据时，它并不会溢出（这就满足了“无穷大加一个有穷的数依然是无穷大”），事实上 0x3f3f3f3f+0x3f3f3f3f=2122219134 ，这非常大但却没有超过32-bit int 的表示范围，所以 0x3f3f3f3f 还满足了我们“无穷大加无穷大还是无穷大”的需求。</p>
+<p>最后，0x3f3f3f3f还能给我们带来一个意想不到的额外好处：<br>如果我们想要将某个数组清零，我们通常会使用memset(a,0,sizeof(a))，方便又高效，但是当我们想将某个数组全部赋值为无穷大时，就不能使用memset函数而得自己写循环了，因为memset是按字节操作的，它能够对数组清零是因为0的每个字节都是0（一般我们只有赋值为-1和0的时候才使用它）。现在好了，如果我们将无穷大设为0x3f3f3f3f，那么奇迹就发生了，0x3f3f3f3f的每个字节都是0x3f！所以要把一段内存全部置为无穷大，我们只需要memset(a,0x3f,sizeof(a))。</p>
+<p>所以在通常的场合下，0x3f3f3f3f真的是一个非常棒的选择！</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://blog.csdn.net/jiange_zh/article/details/50198097" target="_blank" rel="noopener">【算法设计与数据结构】为何程序员喜欢将INF设置为0x3f3f3f3f？</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在&lt;strong&gt;算法&lt;/strong&gt;竞赛中，我们常常需要用到一个“无穷大”的值，对于我来说，大多数时间我会根据具体问题取一个99999999之类的数（显得很不专业啊！）&lt;/p&gt;
+&lt;p&gt;在网上看别人代码的时候，经常会看到他们把INF设为 0x7fffffff ，奇怪为什么
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ACM 竞赛小技巧</title>
+    <link href="/ACM-%E7%AB%9E%E8%B5%9B%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    <id>/ACM-竞赛小技巧/</id>
+    <published>2017-08-23T07:57:24.000Z</published>
+    <updated>2018-11-14T04:08:21.519Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ACM-竞赛小技巧"><a href="#ACM-竞赛小技巧" class="headerlink" title="ACM 竞赛小技巧"></a>ACM 竞赛小技巧</h1><h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>当使用 for 循环从头至尾去循环一个数组 s 的时候，可以用</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; s[i]; ++i)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="INF"><a href="#INF" class="headerlink" title="INF"></a>INF</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br></pre></td></tr></table></figure>
+<p>具体原因参见<a href="https://yuki-14544869.github.io/2017/08/23/%E4%B8%BA%E4%BD%95%E7%A8%8B%E5%BA%8F%E5%91%98%E5%96%9C%E6%AC%A2%E5%B0%86INF%E8%AE%BE%E7%BD%AE%E4%B8%BA0x3f3f3f3f%EF%BC%9F/" target="_blank" rel="noopener">为何程序员喜欢将 INF 设置为 0x3f3f3f3f ？</a></p>
+<hr>
+<h2 id="long-long"><a href="#long-long" class="headerlink" title="long long"></a>long long</h2><p>在计算过程中可以用</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">1L</span>L * x * x;</span><br></pre></td></tr></table></figure>
+<p>将原先被设置成 int 类型的整数转化成 long long 类型。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;ACM-竞赛小技巧&quot;&gt;&lt;a href=&quot;#ACM-竞赛小技巧&quot; class=&quot;headerlink&quot; title=&quot;ACM 竞赛小技巧&quot;&gt;&lt;/a&gt;ACM 竞赛小技巧&lt;/h1&gt;&lt;h2 id=&quot;for循环&quot;&gt;&lt;a href=&quot;#for循环&quot; class=&quot;header
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows 下利用 Cygwin 搭建 C/C++ 开发环境</title>
+    <link href="/Windows-%E4%B8%8B%E5%88%A9%E7%94%A8-Cygwin-%E6%90%AD%E5%BB%BA-C-C-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    <id>/Windows-下利用-Cygwin-搭建-C-C-开发环境/</id>
+    <published>2017-08-22T08:30:47.000Z</published>
+    <updated>2018-11-14T04:08:21.519Z</updated>
+    
+    <content type="html"><![CDATA[<p>暑假学校进行实验室保密检查，把实验室的电脑全部装上了一个影子卫士之类的软件，却莫名其妙的把我的编译环境全部弄坏了，因此选择重装。我的 C 语言 IDE 是 JetBrains 家的 Clion。 Clion 对 MinGW 的支持不是很好，会出现输入回显等奇怪的现象，因此选择 Cygwin。</p>
+<p>原本网上Cygwin的安装配置教程很多的，也就没想着存档，然而今天想找出来时却发现一夜之间所有教程都不见了，于是便将我好不容易在新浪博客上找到的教程扒出来贴在自己的博客里。</p>
+<hr>
+<h1 id="下载Cygwin"><a href="#下载Cygwin" class="headerlink" title="下载Cygwin"></a>下载Cygwin</h1><p>首先去网站 <a href="http://www.cygwin.com/" target="_blank" rel="noopener">Cygwin官网</a> 下载 Cygwin 的 Windows系统的安装包，32位系统下载steup-x86.exe，64位系统则下载steup-x86_64.exe，界面如下。<br><img src="/Img/2017/08/22/微信截图_20170822163925.png" alt=""></p>
+<hr>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ol>
+<li><p>双击下载好的Cygwin安装包，出现安装界面，点击下一步。之后出现如下界面，默认为第一个选项，意思是从网络下载并安装（从官网下载的不是完整安装包，只是安装引导程序），第二个选项是仅仅下载不安装，第三个则是从本地安装（意思是已经下载好了需要的安装文件）。我还没有下载好文件，并且要安装，所以选择默认第一项，之后点击下一步。<img src="/Img/2017/08/22/005VELIygy72bVbRvLMb6.png" alt=""></p>
+</li>
+<li><p>在这里选择安装目录，一般要有一个专门用来作开发工具的安装目录，我这里在为C:\Develop，并在此文件下新建用来安装Cygwin的目录，所以总的目录为C:\Develop\MinGW。选择所有用户，之后点击下一步。<img src="/Img/2017/08/22/005VELIygy72bVYCn7V77.png" alt=""></p>
+</li>
+<li><p>这里要为将要下载的安装包选择存放位置，我选择在C盘的下载目录。选择好后点击下一步。<img src="/Img/2017/08/22/005VELIygy72bWapp9K18.png" alt=""></p>
+</li>
+<li><p>选择默认，点击下一步。<img src="/Img/2017/08/22/005VELIygy72bWjrZswb4.png" alt=""></p>
+</li>
+<li><p>闪过一个页面之后出现如下界面，选择蓝色的网址，这是国内中科大的镜像站，所以网速较快，东北地区的也可以选择上面那一个，是大连东软学院的镜像站，隔得较近，应该比中科大的快。<img src="/Img/2017/08/22/005VELIygy72bWqnp3Gb0.png" alt=""></p>
+</li>
+<li><p>在这个页面之后，就是最重要的一个地方了，会自动进入下一步。<img src="/Img/2017/08/22/005VELIygy72bWMUKWq9e.png" alt=""></p>
+</li>
+<li><p>在画红线处分别搜索 gcc-core、gcc-g++、make、gdb、binutils，以上所有项目都在 devel 文件夹下。<img src="/Img/2017/08/22/005VELIygy72bWVT3Vy54.jpg" alt=""></p>
+</li>
+<li><p>原本的 5.3.0-5 <em>(版本号变大了是正常的事情，反正是数字就对了)</em>位置也是 Skip，在点击一次之后，出现如下界面即可，其他的也一样。<img src="/Img/2017/08/22/005VELIygy72bX5gdUn0b.jpg" alt=""> <strong>gcc-core</strong><br><img src="/Img/2017/08/22/005VELIygy72bXmEdje5c.jpg" alt=""> <strong>gcc-g++</strong><br><img src="/Img/2017/08/22/005VELIygy72bXuaSZOc0.jpg" alt=""> <strong>make</strong><br><img src="/Img/2017/08/22/005VELIygy72bXy1AnVd3.png" alt=""> <strong>gdb</strong><br><img src="/Img/2017/08/22/005VELIygy72bXCBtSe2e.jpg" alt=""> <strong>binutils</strong></p>
+</li>
+<li><p>之后点击左下角的下一步。<img src="/Img/2017/08/22/005VELIygy72bXRyn6i82.jpg" alt=""></p>
+</li>
+<li><p>这里检查要安装的项目，和上面选择的是不一样的，增加了许多相关的文件，不好检查，不过一般没问题，所以直接点击下一步。<img src="/Img/2017/08/22/005VELIygy72bXYrMjsbe.png" alt=""></p>
+</li>
+<li><p>此时开始下载并安装Cygwin，时间稍微久一点。<img src="/Img/2017/08/22/005VELIygy72bYiPHYK2a.png" alt=""></p>
+</li>
+<li><p>根据需要是否在桌面（第一项）和开始菜单（第二项）创建快捷方式，因为我不常用终端模式，但有时候可能需要，所以只选择第二项，点击完成。<img src="/Img/2017/08/22/005VELIygy72bYArRxCa0.png" alt=""></p>
+</li>
+<li><p>将安装目录下的 bin目录 添加到 Path 环境变量。<img src="/Img/2017/08/22/005VELIygy72bYMYMAN09.png" alt=""></p>
+</li>
+</ol>
+<hr>
+<h1 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h1><p>验证是否安装成功。打开命令提示符窗口，输入 gcc -v，出现以下情况说明安装成功。<img src="/Img/2017/08/22/005VELIygy72bYYyi2cc0.jpg" alt=""></p>
+<hr>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="http://blog.sina.com.cn/s/blog_143cf62360102wrgd.html" target="_blank" rel="noopener">Windows下利用Cygwin搭建C/C++开发环境GCC</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;暑假学校进行实验室保密检查，把实验室的电脑全部装上了一个影子卫士之类的软件，却莫名其妙的把我的编译环境全部弄坏了，因此选择重装。我的 C 语言 IDE 是 JetBrains 家的 Clion。 Clion 对 MinGW 的支持不是很好，会出现输入回显等奇怪的现象，因此选
+    
+    </summary>
+    
+    
+      <category term="Clion" scheme="/tags/Clion/"/>
+    
+      <category term="开发环境" scheme="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo 博客多机更新</title>
+    <link href="/hexo-%E5%8D%9A%E5%AE%A2%E5%A4%9A%E6%9C%BA%E6%9B%B4%E6%96%B0/"/>
+    <id>/hexo-博客多机更新/</id>
+    <published>2017-08-17T03:04:48.000Z</published>
+    <updated>2018-11-14T04:08:21.519Z</updated>
+    
+    <content type="html"><![CDATA[<p>晚上回寝室，想用电脑写博客时发现自己平常随身携带的本子忘记带回寝室了，于是便上网搜索了一下如何使用不同的电脑更新同一个博客，感谢<a href="https://www.zhihu.com/people/CrazyMilk" target="_blank" rel="noopener">CrazyMilk</a>在知乎上提供的方法。</p>
+<hr>
+<p><strong>这里假设你已经创建出了自己的博客并希望可以将其修改为适合多机使用的情况，如果没有创建出自己的博客，请参照我的这一篇博客：<a href="https://yuki-14544869.github.io/2017/08/10/%E4%BD%BF%E7%94%A8%20hexo-github%20%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">使用hexo+github搭建我的个人博客</a></strong></p>
+<hr>
+<h1 id="一、-创建分支"><a href="#一、-创建分支" class="headerlink" title="一、 创建分支"></a>一、 创建分支</h1><p>对你的博客的仓库创建一个新的分支。<br><img src="/Img/2017/08/17/2017-08-17_11-20.jpg" alt=""><br>右击左上角的 Branch ，在弹出的界面的输入框里输入 HEXO 并回车。<br><img src="/Img/2017/08/17/2017-08-17_11-24.jpg" alt=""><br>创建完成之后如下图所示<br><img src="/Img/2017/08/17/2017-08-17_11-22.jpg" alt=""></p>
+<hr>
+<h1 id="二、-设置-HEXO-为默认分支"><a href="#二、-设置-HEXO-为默认分支" class="headerlink" title="二、 设置 HEXO 为默认分支"></a>二、 设置 HEXO 为默认分支</h1><p>在页面的最上方寻找到Settings选项<br><img src="/Img/2017/08/17/2017-08-17_11-32.jpg" alt=""><br>在左侧选择 Branches 将其中的 Default branch 更改为 HEXO<br><img src="/Img/2017/08/21/20170821213450.png" alt=""><br>回到本仓库的首页，选择 upload 将博客的源文件全部上传至此远程仓库。<strong>此时的分支应为 HEXO</strong></p>
+<hr>
+<h1 id="三、-下载博客源文件"><a href="#三、-下载博客源文件" class="headerlink" title="三、 下载博客源文件"></a>三、 下载博客源文件</h1><p>在自己选定的地方打开 git bash 使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:Yuki-14544869/Yuki-14544869.github.io.git //将这里的Yuki-14544869改成你的用户名</span><br></pre></td></tr></table></figure>
+<p>拷贝仓库</p>
+<hr>
+<h1 id="四、-搭建环境"><a href="#四、-搭建环境" class="headerlink" title="四、 搭建环境"></a>四、 搭建环境</h1><p>在下载下来的文件夹下打开 git bash 依次执行,<strong>此时当前分支应显示为 HEXO</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">npm install hexo --save   //先安装 hexo</span><br><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="五、-修改配置"><a href="#五、-修改配置" class="headerlink" title="五、 修改配置"></a>五、 修改配置</h1><p>修改<strong>站点配置文件</strong> _deploy 参数，分支应为master</p>
+<hr>
+<h1 id="六、-上传博客源文件"><a href="#六、-上传博客源文件" class="headerlink" title="六、 上传博客源文件"></a>六、 上传博客源文件</h1><p>与 git 提交代码的方式无二，依次执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"..."</span></span><br><span class="line">git push origin HEXO</span><br></pre></td></tr></table></figure>
+<p>指令将文件推送至 GitHub <strong>此时当前分支应显示为 HEXO</strong></p>
+<p>–</p>
+<h1 id="七、-更新博客"><a href="#七、-更新博客" class="headerlink" title="七、 更新博客"></a>七、 更新博客</h1><p>执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<p>将博客发布</p>
+<hr>
+<p>这样一来，在GitHub上的<a href="https://github.com/Yuki-14544869/Yuki-14544869.github.io" target="_blank" rel="noopener">https://github.com/Yuki-14544869/Yuki-14544869.github.io</a>仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。完美( •̀ ω •́ )y！</p>
+<hr>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li><a href="https://www.zhihu.com/question/21193762" target="_blank" rel="noopener">使用hexo，如果换了电脑怎么更新博客？</a></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;晚上回寝室，想用电脑写博客时发现自己平常随身携带的本子忘记带回寝室了，于是便上网搜索了一下如何使用不同的电脑更新同一个博客，感谢&lt;a href=&quot;https://www.zhihu.com/people/CrazyMilk&quot; target=&quot;_blank&quot; rel=&quot;noo
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hihoCoder-1324、希尔伯特曲线</title>
+    <link href="/hihoCoder-1324-%E5%B8%8C%E5%B0%94%E4%BC%AF%E7%89%B9%E6%9B%B2%E7%BA%BF/"/>
+    <id>/hihoCoder-1324-希尔伯特曲线/</id>
+    <published>2017-08-16T15:14:16.000Z</published>
+    <updated>2018-11-14T04:08:21.527Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1324-希尔伯特曲线"><a href="#1324-希尔伯特曲线" class="headerlink" title="#1324 : 希尔伯特曲线"></a><a href="http://hihocoder.com/problemset/problem/1324" target="_blank" rel="noopener">#1324 : 希尔伯特曲线</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>希尔伯特曲线是以下一系列分形曲线 Hn 的极限。我们可以把 Hn 看作一条覆盖 2n × 2n 方格矩阵的曲线，曲线上一共有 2n × 2n 个顶点(包括左下角起点和右下角终点)，恰好覆盖每个方格一次。</p>
+<p><img src="/Img/2017/08/13/2017-08-13_23-42.png" alt=""></p>
+<p>Hn(n &gt; 1)可以通过如下方法构造：</p>
+<ol>
+<li><p>将 Hn-1 顺时针旋转90度放在左下角</p>
+</li>
+<li><p>将 Hn-1 逆时针旋转90度放在右下角</p>
+</li>
+<li><p>将2个 Hn-1 分别放在左上角和右上角</p>
+</li>
+<li><p>用3条单位线段把4部分连接起来</p>
+</li>
+</ol>
+<p>对于 Hn 上每一个顶点 p ，我们定义 p 的坐标是它覆盖的小方格在矩阵中的坐标，定义 p 的序号是它在曲线上从起点开始数第几个顶点。给定 p 的坐标，你能算出 p 的序号吗？ </p>
+<hr>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>输入包含3个整数 n , x , y 。 n 是分形曲线的阶数，(x, y)是 p 的坐标。</p>
+<p>1 ≤ n ≤ 30</p>
+<p>1 ≤ x, y ≤ 2n</p>
+<hr>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>p 的序号。</p>
+<hr>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><p>3 6 1</p>
+<hr>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><p>60</p>
+<hr>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>题目中已经说明Hn是由4个Hn-1旋转拼接而成，递归的结构非常明显。所以对于求Hn中(x, y)的序号，我们自然而然会想能否转化成在Hn-1中求(x’, y’)的序号。</p>
+<p>实际上我们只需要考虑Hn中的(x, y)是在左下、左上、右上、右下4个Hn-1中的哪一个里，即可转化成在Hn-1中求(x’, y’)序号的子问题。具体(x, y)到(x’, y’)的对应关系涉及到坐标平移和旋转，留给大家思考，不再赘述。</p>
+<p><img src="/Img/2017/08/16/2017-08-16_19-30.png" alt=""></p>
+<p>以样例为例，如上图所示，H3中的(6, 1)在右下角的H2中，并且对应着H2中(4, 3)这个点。</p>
+<p>如果我们能正确求出H2中(4, 3)这个点的序号是12，又因为前3个H2中一共包含16x3=48个点，那么我们就能求出H3中的(6, 1)的序号是12+48=60。</p>
+<p>最后需要注意的是n=30时一共包含2^60个点，所以计算序号的时候需要用64位整型存储。</p>
+<h3 id="坐标变换"><a href="#坐标变换" class="headerlink" title="坐标变换"></a>坐标变换</h3><p><img src="/Img/2017/08/24/20170824155059.jpg" alt=""><br>如图，<br>当判断点实在当前图形的1位置时，需要将图像对于直线 x=y 进行翻折，即交换x，y的值。<br>当判断点实在当前图形的2位置时，只需将图像向下平移即可，即 x 不变，y-m。<br>当判断点实在当前图形的3位置时，同样是将图像平移至1位置即可，即  x-m, y-m。<br>当判断点实在当前图形的4位置时，先需要将图像平移至1位置,再将图像对于直线 x=-y 进行翻折，即 x=m+1-y, y=2*m+1-x。</p>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">    Author: Yuki</span><br><span class="line">    GitHub: https://github.com/Yuki-14544869/</span><br><span class="line">    Blog:   https://yuki-14544869.github.io/</span><br><span class="line">*/</span><br><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">#define LL long long</span><br><span class="line">using namespace std;</span><br><span class="line">const int INF = 0x3f3f3f3f;</span><br><span class="line">LL HilbertNumber(int n, int x, int y) &#123;</span><br><span class="line">    if(n==0)</span><br><span class="line">        return 1;</span><br><span class="line">    int m = 1&lt;&lt;(n-1);</span><br><span class="line"></span><br><span class="line">    if(x&lt;=m) &#123;</span><br><span class="line">        if(y&lt;=m)</span><br><span class="line">            return HilbertNumber(n-1, y, x);</span><br><span class="line">        else</span><br><span class="line">            return 1LL*m*m + HilbertNumber(n-1, x, y-m);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        if(y&gt;m)</span><br><span class="line">            return 2LL*m*m + HilbertNumber(n-1, x-m, y-m);</span><br><span class="line">        else</span><br><span class="line">            return 3LL*m*m + HilbertNumber(n-1, m+1-y, 2*m+1-x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">    int n, x, y;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    cout &lt;&lt; HilbertNumber(n, x, y) &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    /*</span><br><span class="line">    Author: Yuki</span><br><span class="line">    GitHub: https://github.com/Yuki-14544869/</span><br><span class="line">    Blog:   https://yuki-14544869.github.io/</span><br><span class="line">    */</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner in = new Scanner(System.in);</span><br><span class="line">        int n = in.nextInt();</span><br><span class="line">        int x = in.nextInt();</span><br><span class="line">        int y = in.nextInt();</span><br><span class="line"></span><br><span class="line">        System.out.println(HilbertNumber(n, x, y));</span><br><span class="line">        in.close();</span><br><span class="line">    &#125;</span><br><span class="line">    public static long HilbertNumber(int n, int x, int y) &#123;</span><br><span class="line">        if(n==0)</span><br><span class="line">            return 1;</span><br><span class="line">        int m = 1&lt;&lt;(n-1);</span><br><span class="line"></span><br><span class="line">        if(x&lt;=m) &#123;</span><br><span class="line">            if(y&lt;=m)</span><br><span class="line">                return HilbertNumber(n-1, y, x);</span><br><span class="line">            else</span><br><span class="line">                return 1L*m*m + HilbertNumber(n-1, x, y-m);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            if(y&gt;m)</span><br><span class="line">                return 2L*m*m + HilbertNumber(n-1, x-m, y-m);</span><br><span class="line">            else</span><br><span class="line">                return 3L*m*m + HilbertNumber(n-1, m+1-y, 2*m+1-x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1324-希尔伯特曲线&quot;&gt;&lt;a href=&quot;#1324-希尔伯特曲线&quot; class=&quot;headerlink&quot; title=&quot;#1324 : 希尔伯特曲线&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://hihocoder.com/problemset/problem/1
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="/tags/ACM/"/>
+    
+      <category term="hiho" scheme="/tags/hiho/"/>
+    
+      <category term="几何" scheme="/tags/%E5%87%A0%E4%BD%95/"/>
+    
+      <category term="分治" scheme="/tags/%E5%88%86%E6%B2%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>提取 Windows 10 锁屏壁纸</title>
+    <link href="/%E6%8F%90%E5%8F%96-Windows-10-%E9%94%81%E5%B1%8F%E5%A3%81%E7%BA%B8/"/>
+    <id>/提取-Windows-10-锁屏壁纸/</id>
+    <published>2017-08-16T11:41:25.000Z</published>
+    <updated>2018-11-14T04:08:21.527Z</updated>
+    
+    <content type="html"><![CDATA[<p>Windows  10 有一个叫做 「Windows 聚焦」的功能，会定期精选一些壁纸作为锁屏壁纸。<strong>可惜它并没有提供下载功能</strong>，当你看到一些很漂亮的照片，如何将它保存下来，用作其它壁纸呢？</p>
+<p><strong>按 Win + R，复制引号内的代码输入即可进入锁屏壁纸的存放文件夹。</strong> “%localappdata%\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets”</p>
+<p><img src="/Img/2017/08/16/2017-08-16_19-53.png" alt=""></p>
+<p>然后将里面的文件<strong>复制到其他文件夹中</strong>，后缀改成「.jpg」即可正常显示。（请勿在原文件夹中修改。）</p>
+<p>如果你不想手动修改，也可以使用批量修改。在文件夹里<strong>新建一个文本文档</strong>，打开在里面输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ren * *.jpg  //每个星号前面都有空格</span><br></pre></td></tr></table></figure>
+<p>保存，然后<strong>将新建文档后缀名「txt」改成「bat」</strong>，双击运行。</p>
+<p><img src="/Img/2017/08/16/2017-08-16_20-02.png" alt=""></p>
+<p>同一张图片会有竖屏和横屏两种模式，可以方便地为设置为手机壁纸。需要注意的是，这些文件夹里面也会掺杂一些其它缓存的图片。</p>
+<hr>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="http://mp.weixin.qq.com/s/EgyNnpAUaPH9IpwdLwDxNw" target="_blank" rel="noopener">有办法提取 Win 10 的锁屏壁纸吗？| 有轻功 #155</a></p>
+<p><img src="/Img/AppSo.bmp" alt=""><strong>微信扫一扫关注 AppSo 公众号</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Windows  10 有一个叫做 「Windows 聚焦」的功能，会定期精选一些壁纸作为锁屏壁纸。&lt;strong&gt;可惜它并没有提供下载功能&lt;/strong&gt;，当你看到一些很漂亮的照片，如何将它保存下来，用作其它壁纸呢？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;按 Win + R，复
+    
+    </summary>
+    
+    
+      <category term="Windows" scheme="/tags/Windows/"/>
+    
+  </entry>
+  
+</feed>

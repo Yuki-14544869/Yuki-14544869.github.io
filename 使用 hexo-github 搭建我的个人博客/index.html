@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="使用Hexo+github搭建我的个人博客"><meta name="keywords" content="Hexo"><meta name="author" content="Yuki-,undefined"><meta name="copyright" content="Yuki-"><title>使用Hexo+github搭建我的个人博客 | #39C5BB</title><link rel="shortcut icon" href="/my-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.5.6"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css?version=1.5.6"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#闲聊"><span class="toc-number">1.</span> <span class="toc-text">闲聊</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、-搭建环境准备"><span class="toc-number">2.</span> <span class="toc-text">一、 搭建环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、-安装Hexo"><span class="toc-number">3.</span> <span class="toc-text">二、 安装Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、-Hexo的相关配置"><span class="toc-number">4.</span> <span class="toc-text">三、 Hexo的相关配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、-怎样将Hexo与github-page-联系起来"><span class="toc-number">5.</span> <span class="toc-text">四、 怎样将Hexo与github page 联系起来</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置Git个人信息"><span class="toc-number">5.1.</span> <span class="toc-text">配置Git个人信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置Deployment"><span class="toc-number">5.2.</span> <span class="toc-text">配置Deployment</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、-发布文章"><span class="toc-number">6.</span> <span class="toc-text">五、 发布文章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#踩坑提醒"><span class="toc-number">6.1.</span> <span class="toc-text">踩坑提醒</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、-Next主题的简单配置"><span class="toc-number">7.</span> <span class="toc-text">六、 Next主题的简单配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">8.</span> <span class="toc-text">参考文献</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">Yuki-</div><div class="author-info__description text-center">St. Majiagou Ship Technical Vocational College, Major in computer science and document modification, Bug Engineer</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">24</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">16</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container" style="background-image: url(true)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">#39C5BB</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">使用Hexo+github搭建我的个人博客</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-08-10</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a><strong>闲聊</strong></h2><p>在ACM的学习过程中碰见不会做的题目总是会上网搜索题解，在这过程中也是见识到了不同样式的博客。从而也萌生了自己写博客的念头，也想将自己的所学到的东西分享到博客上，不仅可以让别人学习，也是对自己的所学的一种巩固。于是一开始我用过一段时间的CSDN作为自己的博客，但是CSDN的样式对我来说仍然太丑，而且广告太多，在浏览之余，无意间发现了hexo，而且他的next主题性冷淡的色彩的搭配也直接戳中了我的内心。于是便乘着暑假给学弟们讲课之余建立了这么一个博客。</p>
+<p>搭建环境步骤：</p>
+<p><a href="#1">一、 搭建环境准备</a><br><a href="#2">二、 安装Hexo</a><br><a href="#3">三、 Hexo的相关配置</a><br><a href="#4">四、 怎样将Hexo与github page 联系起来</a><br><a href="#5">五、 发布文章</a><br><a href="#6">六、 Next主题的简单配置</a></p>
+<hr>
+<h2 id="一、-搭建环境准备"><a href="#一、-搭建环境准备" class="headerlink" title="一、 搭建环境准备"></a><strong>一、 搭建环境准备</strong></h2><p>大概可以分为以下三步 </p>
+<ul>
+<li>Node.js 的安装和准备 </li>
+<li>Git的安装和准备 </li>
+<li>gitHub账户的配置  </li>
+</ul>
+<ol>
+<li><p>配置Node.js环境<br>下载node.js安装文件<br> -<a href="https://nodejs.org/dist/v4.2.3/node-v4.2.3-x86.msi" target="_blank" rel="noopener">Windows Installer 32-bit</a><br> -<a href="https://nodejs.org/dist/v4.2.3/node-v4.2.3-x64.msi" target="_blank" rel="noopener">Windows Installer 64-bit</a><br>保持默认设置，一路next即可。最后在命令行界面(Win+R, 弹出运行之后输入cmd回车即可)确认版本以确定是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p><img src="/Img/2017/08/10/2017-08-10_17-34.png" alt="">  </p>
+</li>
+<li><p>配置Git环境<br><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git官网下载地址</a><br>与Node.js一样，一路默认配置直接下一步即可。最后打开命令行界面输入命令： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<p>如果结果如下图所示，则说明安装正确，可以进行下一步了，如果不正确，则需要回头检查自己的安装过程。<br><img src="/Img/2017/08/10/2017-08-10_17-36.png" alt="">  </p>
+</li>
+<li>github配置  <ol>
+<li>创建代码库<br>登陆之后，点击页面右上角的加号，选择New repository：<br><img src="/Img/2017/08/10/2017-08-10_17-42.png" alt=""><br>新建代码库<br>进入代码库创建页面：<br>在Repository name下填写yourname.github.io，Description (optional)下填写一些简单的描述（不写也没有关系），如图所示：<br><img src="/Img/2017/08/10/2017-08-10_19-54.jpg" alt=""><br><strong>注意：比如我的github名称是Yuki-14544869 ,这里你就填 Yuki-14544869.github.io,如果你的名字是123456，那你就填 123456.github.io</strong></li>
+<li>代码库设置<br>正确创建之后，你将会看到如下界面：<br><img src="/Img/2017/08/10/2017-08-10_19-56.jpg" alt=""><br>接下来开启gh-pages功能，点击界面右侧的Settings，你将会打开这个库的setting页面，向下拖动，直到看见GitHub Pages，如图：<br><img src="/Img/2017/08/10/2017-08-10_19-57.jpg" alt=""><br><strong>Github pages</strong><br><img src="/Img/2017/08/10/2017-08-10_19-58.jpg" alt=""><br>点击Automatic page generator，Github将会自动替你创建出一个gh-pages的页面。 如果你的配置没有问题，那么大约15分钟之后，yourname.github.io这个网址就可以正常访问了~ 如果yourname.github.io已经可以正常访问了，那么Github一侧的配置已经全部结束了。</li>
+</ol>
+</li>
+</ol>
+<p>到此搭建hexo博客的相关环境配置已经完成，下面开始讲解Hexo的相关配置</p>
+<hr>
+<h2 id="二、-安装Hexo"><a href="#二、-安装Hexo" class="headerlink" title="二、 安装Hexo"></a><strong>二、 安装Hexo</strong></h2><p>在自己认为合适的地方创建一个文件夹，这里我以E：/hexo 为例子讲解，首先在E盘目录下创建Hexo文件夹，进入文件夹后右击Git Bash Here进入git。<br><img src="/Img/2017/08/10/2017-08-10_20-04.png" alt=""><br>在命令行中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure></p>
+<p>然后你会看到：<br><img src="/Img/2017/08/10/2017-08-10_20-05.jpg" alt=""><br>可能你会看到一个WARN，但是不用担心，这不会影响你的正常使用。 然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure></p>
+<p>然后你会看到命令行窗口刷了一大堆白字，下面我们来看一看Hexo是不是已经安装好了。 在命令行中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure></p>
+<p>如果你看到了如图文字，则说明已经安装成功了。<br><img src="/Img/2017/08/10/2017-08-10_20-07.jpg" alt=""></p>
+<hr>
+<h2 id="三、-Hexo的相关配置"><a href="#三、-Hexo的相关配置" class="headerlink" title="三、 Hexo的相关配置"></a><strong>三、 Hexo的相关配置</strong></h2><ol>
+<li><p>初始化Hexo<br>接着上面的操作，输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>之后npm将会自动安装你需要的组件，只需要等待npm操作即可。<br><em>npm默认从国外下载东西，所以网速可能相对来说比较慢，如果实在忍受不了，可以使用以下操作更换npm的源地址</em>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org  </span><br><span class="line">// 配置后可通过下面方式来验证是否成功   </span><br><span class="line">npm config get registry   </span><br><span class="line">// 使用cnpm替代默认的npm：</span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p><em>下面你就可以通过cnpm install moduleName来像使用npm一样安装你所需的包了</em></p>
+</li>
+<li><p>首次体验Hexo<br>继续操作，同样是在git中，输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>然后会提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<p>在浏览器中打开<a href="http://localhost:4000/，你将会看到：" target="_blank" rel="noopener">http://localhost:4000/，你将会看到：</a><br><img src="/Img/2017/08/10/2017-08-10_20-17.jpg" alt="">  </p>
+<p>到目前为止，Hexo在本地的配置已经全都结束了。</p>
+<p>下面会讲解怎样将Hexo与github page 联系起来</p>
+</li>
+</ol>
+<hr>
+<h2 id="四、-怎样将Hexo与github-page-联系起来"><a href="#四、-怎样将Hexo与github-page-联系起来" class="headerlink" title="四、 怎样将Hexo与github page 联系起来"></a><strong>四、 怎样将Hexo与github page 联系起来</strong></h2><p>大概分为以下几步 </p>
+<ul>
+<li>配置git个人信息 </li>
+<li>配置Deployment</li>
+</ul>
+<h3 id="配置Git个人信息"><a href="#配置Git个人信息" class="headerlink" title="配置Git个人信息"></a>配置Git个人信息</h3><p><em>如果你之前已经配置好Git个人信息，请跳过这一个步骤</em></p>
+<ol>
+<li><p>设置Git的user name和email：(如果是第一次的话)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;123456&quot;</span><br><span class="line">git config --global user.email &quot;123456@163.com&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个 SSH key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;123456@163.com&quot;</span><br></pre></td></tr></table></figure>
+<p>代码参数含义：</p>
+<ul>
+<li>-t 指定密钥类型，默认是 rsa ，可以省略。</li>
+<li>-C 设置注释文字，比如邮箱。</li>
+<li>-f 指定密钥文件存储文件名。</li>
+</ul>
+<p>以上代码省略了 -f 参数，因此，运行上面那条命令后会让你输入一个文件名，用于保存刚才生成的 SSH key 代码，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Generating public/private rsa key pair.</span><br><span class="line"># Enter file in which to save the key (/c/Users/you/.ssh/id_rsa): [Press enter]</span><br></pre></td></tr></table></figure>
+<p>当然，你也可以不输入文件名，使用默认文件名（推荐），那么就会生成 id_rsa 和 id_rsa.pub 两个秘钥文件。</p>
+<p>接着又会提示你输入两次密码（该密码是你push文件的时候要输入的密码，而不是github管理者的密码），当然，你也可以不输入密码，直接按回车。那么push的时候就不需要输入密码，直接提交到github上了，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase): </span><br><span class="line"># Enter same passphrase again:</span><br></pre></td></tr></table></figure>
+<p>接下来，就会显示如下代码提示，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved in /c/Users/you/.ssh/id_rsa.</span><br><span class="line"># Your public key has been saved in /c/Users/you/.ssh/id_rsa.pub.</span><br><span class="line"># The key fingerprint is:</span><br><span class="line"># 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com</span><br></pre></td></tr></table></figure>
+<p>当你看到上面这段代码的收，那就说明，你的 SSH key 已经创建成功，你只需要添加到github的SSH key上就可以了。</p>
+</li>
+<li><p>添加你的 SSH key 到 github上面去</p>
+<ol>
+<li><p>首先你需要拷贝 id_rsa.pub 文件的内容，你可以用编辑器打开文件复制，也可以用git命令复制该文件的内容，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录你的github账号，从又上角的设置（ Account Settings ）进入，然后点击菜单栏的 SSH key 进入页面添加 SSH key。</p>
+</li>
+<li>点击 Add SSH key 按钮添加一个 SSH key 。把你复制的 SSH key 代码粘贴到 key 所对应的输入框中，记得 SSH key 代码的前后不要留有空格或者回车。当然，上面的 Title 所对应的输入框你也可以输入一个该 SSH key 显示在 github 上的一个别名。默认的会使用你的邮件名称。  </li>
+</ol>
+</li>
+<li><p>测试一下该SSH key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>当你输入以上代码时，会有一段警告代码，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &apos;github.com (207.97.227.239)&apos; can&apos;t be established.</span><br><span class="line"># RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="line"># Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
+<p>这是正常的，你输入 yes 回车既可。如果你创建 SSH key 的时候设置了密码，接下来就会提示你输入密码，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase for key &apos;/c/Users/Administrator/.ssh/id_rsa&apos;:</span><br></pre></td></tr></table></figure>
+<p>当然如果你密码输错了，会再要求你输入，知道对了为止。<br>注意：输入密码时如果输错一个字就会不正确，使用删除键是无法更正的。<br>密码正确后你会看到下面这段话，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You&apos;ve successfully authenticated, but GitHub does not</span><br><span class="line"># provide shell access.</span><br></pre></td></tr></table></figure>
+<p>如果用户名是正确的,你已经成功设置SSH密钥。如果你看到 “access denied” ，者表示拒绝访问，那么你就需要使用 https 去访问，而不是 SSH 。</p>
+<h3 id="配置Deployment"><a href="#配置Deployment" class="headerlink" title="配置Deployment"></a>配置Deployment</h3><p>同样在_config.yml文件中，找到Deployment，然后按照如下修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<p>比如我的仓库的地址是git@github.com:Yuki-14544869/Yuki-14544869.github.io.git，所以配置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: git@github.com:Yuki-14544869/Yuki-14544869.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<hr>
+</li>
+</ol>
+<h2 id="五、-发布文章"><a href="#五、-发布文章" class="headerlink" title="五、 发布文章"></a><strong>五、 发布文章</strong></h2><p>新建一篇博客，执行下面的命令：<br><img src="/Img/2017/08/10/2017-08-10_21-51.jpg" alt=""><br>这时候在我的 电脑的目录下 F:\hexo\source\ _posts 将会看到 article title.md 文件<br>用MarDown编辑器打开就可以编辑文章了。文章编辑好之后，运行生成、部署命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g   // 生成</span><br><span class="line">hexo d   // 部署</span><br></pre></td></tr></table></figure></p>
+<p>当然你也可以执行下面的命令，相当于上面两条命令的效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g #在部署前先生成</span><br></pre></td></tr></table></figure></p>
+<p><img src="/Img/2017/08/10/2017-08-10_21-53.jpg" alt=""><br>部署成功后访问 你的地址，<a href="https://yourName.github.io" target="_blank" rel="noopener">https://yourName.github.io</a></p>
+<p>（这里输入我的地址： <a href="https://Yuki-14544869.github.io" target="_blank" rel="noopener">https://Yuki-14544869.github.io</a> ),将可以看到生成的文章。</p>
+<h3 id="踩坑提醒"><a href="#踩坑提醒" class="headerlink" title="踩坑提醒"></a><strong>踩坑提醒</strong></h3><ol>
+<li><p>注意需要提前安装一个扩展：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p><strong>如果没有执行者行命令，将会提醒</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deloyer not found:git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果出现下面这样的错误，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey). </span><br><span class="line">fatal: Could not read from remote repository. </span><br><span class="line">Please make sure you have the correct access rights and the repository exists.</span><br></pre></td></tr></table></figure>
+<p>则是因为没有设置好SSH key所致。请参考我上文第四步的SSH key重新设置。</p>
+</li>
+</ol>
+<hr>
+<h2 id="六、-Next主题的简单配置"><a href="#六、-Next主题的简单配置" class="headerlink" title="六、 Next主题的简单配置"></a><strong>六、 Next主题的简单配置</strong></h2><p>在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。</p>
+<p>为了描述方便，在以下说明中，将前者称为 <strong>站点配置文件</strong>， 后者称为 <strong>主题配置文件</strong>。</p>
+<p>比如我的电脑下的 F:\hexo 目录下的成为 站点配置文件，F:\hexo\themes\next 目录下的成为主题配置文件。</p>
+<ol>
+<li><p>安装 Next<br>在终端窗口下，定位到 Hexo 站点目录下。使用 Git checkout 代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd your-hexo-site</span><br><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启用主题<br>与所有 Hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 站点配置文件， 找到 theme 字段，并将其值更改为 next。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<p>到此，Next 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前， 我们最好使用 hexo clean 来清除 Hexo 的缓存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证主题<br>首先启动 Hexo 本地站点，并开启调试模式（即加上 –debug），整个命令是 hexo s –debug。 在服务启动的过程，注意观察命令行输出是否有任何异常信息，如果你碰到问题，这些信息将帮助他人更好的定位错误。 当命令行输出中提示出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<p>此时即可使用浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> ，检查站点是否正确运行。<br>当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse<br><img src="/Img/2017/08/10/2017-08-10_22-21.jpg" alt=""><br>现在，你已经成功安装并启用了 NexT 主题。下一步我们将要更改一些主题的设定，包括个性化以及集成第三方服务。</p>
+</li>
+<li><p>主题设定<br>选择 Scheme<br>Scheme 是 Next 提供的一种特性，借助于 Scheme，NexT 为你提供多种不同的外观。同时，几乎所有的配置都可以 在 Scheme 之间共用。目前 NexT 支持三种 Scheme，他们是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</span><br><span class="line">Mist - Muse 的紧凑版本，整洁有序的单栏外观</span><br><span class="line">Pisces - 双栏 Scheme，小家碧玉似的清新</span><br><span class="line">Scheme 的切换通过更改 主题配置文件，搜索 scheme 关键字。 你会看到有三行 scheme 的配置，将你需用启用的 scheme 前面</span><br></pre></td></tr></table></figure>
+<p>注释 # 即可。<br>选择 Mist Scheme</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#scheme: Muse</span><br><span class="line">scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置语言<br>编辑 站点配置文件， 将 language 设置成你所需要的语言。建议明确设置你所需要的语言，例如选用简体中文，配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-Hans</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置 菜单<br>菜单配置包括三个部分，第一是菜单项（名称和链接），第二是菜单项的显示文本，第三是菜单项对应的图标。 NexT 使用的是 Font Awesome 提供的图标， Font Awesome 提供了 600+ 的图标，可以满足绝大的多数的场景，同时无须担心在 Retina 屏幕下 图标模糊的问题。</p>
+<p>编辑 主题配置文件，修改以下内容：</p>
+<p>设定菜单内容，对应的字段是 menu。 菜单内容的设置格式是：item name: link。其中 item name 是一个名称，这个名称并不直接显示在页面上，她将用于匹配图标以及翻译。</p>
+<p>菜单示例配置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /                     //主页</span><br><span class="line">  archives: /archives         //归档页</span><br><span class="line">  #about: /about              //分类页</span><br><span class="line">  #categories: /categories    //标签页</span><br><span class="line">  tags: /tags                 //关于页面</span><br><span class="line">  #commonweal: /404.html      //公益404</span><br></pre></td></tr></table></figure>
+<p>若你的站点运行在子目录中，请将链接前缀的 / 去掉</p>
+<p>设置菜单项的显示文本。在第一步中设置的菜单的名称并不直接用于界面上的展示。Hexo 在生成的时候将使用 这个名称查找对应的语言翻译，并提取显示文本。这些翻译文本放置在 NexT 主题目录下的 languages/{language}.yml （{language} 为你所使用的语言）。</p>
+<p>以简体中文为例，若你需要添加一个菜单项，比如 something。那么就需要修改简体中文对应的翻译文件 languages/zh-Hans.yml，在 menu 字段下添加一项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: 首页</span><br><span class="line">  archives: 归档</span><br><span class="line">  categories: 分类</span><br><span class="line">  tags: 标签</span><br><span class="line">  about: 关于</span><br><span class="line">  search: 搜索</span><br><span class="line">  commonweal: 公益404</span><br><span class="line">  something: 有料</span><br></pre></td></tr></table></figure>
+<p>设定菜单项的图标，对应的字段是 menu_icons。 此设定格式是 item name: icon name，其中 item name 与上一步所配置的菜单名字对应，icon name 是 Font Awesome 图标的 名字。而 enable 可用于控制是否显示图标，你可以设置成 false 来去掉图标。</p>
+<p>菜单图标配置示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu_icons:</span><br><span class="line">  enable: true</span><br><span class="line">  # Icon Mapping.</span><br><span class="line">  home: home</span><br><span class="line">  about: user</span><br><span class="line">  categories: th</span><br><span class="line">  tags: tags</span><br><span class="line">  archives: archive</span><br><span class="line">  commonweal: heartbeat</span><br></pre></td></tr></table></figure>
+<p>在菜单图标开启的情况下，如果菜单项与菜单未匹配（没有设置或者无效的 Font Awesome 图标名字） 的情况下，NexT 将会使用 作为图标。</p>
+<p>请注意键值（如 home）的大小写要严格匹配</p>
+</li>
+<li><p>侧栏<br>默认情况下，侧栏仅在文章页面（拥有目录列表）时才显示，并放置于右侧位置。 可以通过修改 主题配置文件 中的 sidebar 字段来控制侧栏的行为。侧栏的设置包括两个部分，其一是侧栏的位置， 其二是侧栏显示的时机。</p>
+<p>设置侧栏的位置，修改 sidebar.position 的值，支持的选项有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">left - 靠左放置</span><br><span class="line">right - 靠右放置</span><br></pre></td></tr></table></figure>
+<p>目前仅 Pisces Scheme 支持 position 配置。影响版本5.0.0及更低版本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sidebar:</span><br><span class="line">  position: left</span><br></pre></td></tr></table></figure>
+<p>设置侧栏显示的时机，修改 sidebar.display 的值，支持的选项有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">post - 默认行为，在文章页面（拥有目录列表）时显示</span><br><span class="line">always - 在所有页面中都显示</span><br><span class="line">hide - 在所有页面中都隐藏（可以手动展开）</span><br><span class="line">remove - 完全移除</span><br><span class="line">sidebar:</span><br><span class="line">  display: post</span><br></pre></td></tr></table></figure>
+<p>已知侧栏在 use motion: false 的情况下不会展示。 影响版本5.0.0及更低版本。</p>
+</li>
+<li><p>设置头像<br>编辑 站点配置文件， 新增字段 avatar， 值设置成头像的链接地址。其中，头像的链接地址可以是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://example.com/avtar.png    //完整的互联网 URI</span><br><span class="line">/images/avatar.png              //将头像放置主题目录下的 source/images/ 目录下</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置作者昵称<br>编辑 站点配置文件， 设置 author 为你的昵称。</p>
+</li>
+<li>站点描述<br>编辑 站点配置文件， 设置  description<br>字段为你的站点描述。站点描述可以是你喜欢的一句签名:)</li>
+</ol>
+<hr>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a><strong>参考文献</strong></h2><ol>
+<li><a href="http://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="noopener">手把手教你用Hexo+Github 搭建属于自己的博客</a></li>
+<li><a href="http://blog.csdn.net/v2810769/article/details/52585662" target="_blank" rel="noopener">从NPM到CNPM</a></li>
+<li><a href="http://blog.csdn.net/binyao02123202/article/details/20130891" target="_blank" rel="noopener"> github设置添加SSH</a></li>
+</ol>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Yuki-</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="/使用 hexo-github 搭建我的个人博客/">/使用 hexo-github 搭建我的个人博客/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="" target="_blank">#39C5BB</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hexo/">Hexo</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/hexo 写博客的小技巧/"><i class="fa fa-chevron-left">  </i><span>Hexo 写博客的小技巧</span></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2018 By Yuki-</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.6"></script><script src="/js/fancybox.js?version=1.5.6"></script><script src="/js/sidebar.js?version=1.5.6"></script><script src="/js/copy.js?version=1.5.6"></script><script src="/js/fireworks.js?version=1.5.6"></script><script src="/js/transition.js?version=1.5.6"></script><script src="/js/scroll.js?version=1.5.6"></script><script src="/js/head.js?version=1.5.6"></script></body></html>
